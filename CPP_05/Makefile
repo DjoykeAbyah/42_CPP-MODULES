@@ -6,19 +6,20 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/06/27 18:50:46 by djoyke        ########   odam.nl          #
+#    Updated: 2024/06/29 16:11:41 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= materia
+NAME 		= bureaucrat
 
 #compiler + flags
 CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
 
 #sources
-SRC 		= 	./src/main.cpp
+SRC 		= 	./src/main.cpp			\
+				./src/Bureaucrat.cpp	
 				
 #object files
 OBJDIR 		= obj
