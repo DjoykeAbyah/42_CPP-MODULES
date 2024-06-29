@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/29 17:02:09 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/29 17:25:30 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 
 #include <iostream>
 
+/**
+ * Implement also two member functions to increment or decrement the bureaucrat grade. 
+ * WHAT DO YOU MEAN? >> If the grade is out of range, both of them will throw the same exceptions as the constructor. 
+*/
 class Bureaucrat
 {
 	private:
-			std::string const name;
-			int grade; //1 highest to 150 lowest
+			std::string const 	_name;
+			int 				_grade; //1 highest to 150 lowest
 
 	public:
 			Bureaucrat();
@@ -39,13 +43,21 @@ class Bureaucrat
 
 			class GradeTooHighException : public std::exception
 			{
-				
+				virtual const char* what() const throw()
+				{
+					return ("grade too high");
+				}
 			};
 			
 			class GradeTooLowException : public std::exception
 			{
-				
+				virtual const char* what() const throw()
+				{
+					return ("grade too low");
+				}					
 			};
 };
+
+std::ostream & operator<<(std::ostream & stream, const Bureaucrat& bureaucrat);
 
 #endif
