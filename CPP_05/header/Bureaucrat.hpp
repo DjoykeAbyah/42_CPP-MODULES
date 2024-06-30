@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/30 18:48:44 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/30 19:03:20 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class Bureaucrat
 			Bureaucrat(const Bureaucrat &copy);
 			Bureaucrat& operator=(const Bureaucrat &copy);
 			~Bureaucrat();
+
+			void setGrade(const int grade);
 			
 			std::string const & getName() const;
 			int getGrade() const;

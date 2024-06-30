@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:25 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/30 18:49:28 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/30 19:04:14 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,11 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy){
 Bureaucrat::~Bureaucrat(){
 	std::cout << RED << "destructor called for bureaucrat named: " << RESET 
 	<< MAGENTA << _name << RESET << RED << " with grade: " 
-	<< RESET << MAGENTA << _grade << RESET << std::endl;	
+	<< RESET << MAGENTA << _grade << RESET << std::endl;
+}
+
+void Bureaucrat::setGrade(int grade){
+	_grade = grade;
 }
 
 std::string const & Bureaucrat::getName() const{
