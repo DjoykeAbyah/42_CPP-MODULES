@@ -6,20 +6,26 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/29 18:11:13 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/30 18:18:00 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# define BOLD_TEXT "\033[1m"
+# define RESET "\033[0m"
+# define BLUE "\033[34m"
+# define CYAN "\033[36m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define MAGENTA "\033[35m"
+# define ORANGE "\033[38;2;255;165;0m"
+
 #include <iostream>
 #include <stdexcept>
 
-/**
- * Implement also two member functions to increment or decrement the bureaucrat grade. 
- * If the grade is out of range, both of them will throw the same exceptions as the constructor. 
-*/
 class Bureaucrat
 {
 	private:
@@ -39,8 +45,8 @@ class Bureaucrat
 			std::string const & getName() const;
 			int const getGrade() const;
 
-			void incrementGrade(int grade);//throw exception if out of range // incrementing means grade--
-			void decrementGrade(int grade);//throw exception if out of range // decrementing means grade++
+			void incrementGrade();
+			void decrementGrade();
 
 			class GradeTooHighException : public std::exception
 			{
