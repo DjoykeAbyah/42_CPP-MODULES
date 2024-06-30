@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/30 19:30:07 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/30 19:36:00 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@
 
 #include <iostream>
 #include <stdexcept>
-class Bureacrat;
+class Bureaucrat;
 
 /**
  * write:
- * 			- getters for all attributes
- * 			- an overload of the insertion («) operator that prints all the form’s informations.
  * 			- Add also a beSigned() member function to the Form that takes a Bureaucrat as
 			parameter. It changes the form status to signed if the bureaucrat’s grade is high enough
 			(higher or egal to the required one). Remember, grade 1 is higher than grade 2.
@@ -55,11 +53,14 @@ class Form
 		Form(const Form &copy);
 		Form& operator=(const Form &copy);
 		~Form();
-
-		void setGrade(const int grade);
 		
 		std::string const & getName() const;
-		int getGrade() const;
+		bool getSigned() const;
+		int getSignGrade() const;
+		int getExecuteGrade() const;
+
+		void BeSigned(Bureaucrat bureaucrat);
+		void signForm();
 
 		class GradeTooHighException : public std::exception
 		{
