@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/29 17:25:30 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/29 18:11:13 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <stdexcept>
 
 /**
  * Implement also two member functions to increment or decrement the bureaucrat grade. 
- * WHAT DO YOU MEAN? >> If the grade is out of range, both of them will throw the same exceptions as the constructor. 
+ * If the grade is out of range, both of them will throw the same exceptions as the constructor. 
 */
 class Bureaucrat
 {
@@ -27,7 +28,7 @@ class Bureaucrat
 
 	public:
 			Bureaucrat();
-			Bureaucrat(std::string &name);
+			Bureaucrat(std::string &name, int grade);
 			Bureaucrat(const Bureaucrat &copy);
 			Bureaucrat& operator=(const Bureaucrat &copy);
 			~Bureaucrat();
@@ -45,7 +46,7 @@ class Bureaucrat
 			{
 				virtual const char* what() const throw()
 				{
-					return ("grade too high");
+					return "grade too high";
 				}
 			};
 			
@@ -53,7 +54,7 @@ class Bureaucrat
 			{
 				virtual const char* what() const throw()
 				{
-					return ("grade too low");
+					return "grade too low";
 				}					
 			};
 };
