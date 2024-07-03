@@ -1,3 +1,6 @@
+ex02
+turn Form into AForm (abstract class)
+
 1) remove/check all todo's
 2) run test ex00
 3) run test ex01
