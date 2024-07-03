@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:25 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 11:31:29 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 10:34:24 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,6 @@ void Bureaucrat::decrementGrade(){
 	if (this->_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade++;
-}
-
-void Bureaucrat::signForm(Form& form){
-	try
-	{
-		form.beSigned(*this);//try to use sign method for this form
-		std::cout << this->_name << " signed: " << form.getName() << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << this->_name << " couldn't sign: " << form.getName() << "because " << e.what() << std::endl;
-	}
 }
 
 std::ostream & operator<<(std::ostream & stream, const Bureaucrat& bureaucrat){

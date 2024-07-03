@@ -6,12 +6,11 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/30 19:36:00 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 11:24:29 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#pragma once
 
 # define BOLD_TEXT "\033[1m"
 # define RESET "\033[0m"
@@ -25,7 +24,7 @@
 
 #include <iostream>
 #include <stdexcept>
-class Bureaucrat;
+#include <Bureaucrat.hpp>
 
 /**
  * write:
@@ -49,7 +48,7 @@ class Form
 
 	public:
 		Form();
-		Form(const std::string &name, int grade);
+		Form(const std::string &name, int signGrade, int executeGrade);
 		Form(const Form &copy);
 		Form& operator=(const Form &copy);
 		~Form();
@@ -59,8 +58,7 @@ class Form
 		int getSignGrade() const;
 		int getExecuteGrade() const;
 
-		void BeSigned(Bureaucrat bureaucrat);
-		void signForm();
+		void beSigned(Bureaucrat bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -80,5 +78,3 @@ class Form
 };
 
 std::ostream & operator<<(std::ostream & stream, const Form& form);
-
-#endif
