@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/06/30 19:18:53 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/03 13:02:58 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,12 @@ CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
 
 #sources
-SRC 		= 	./src/main.cpp			\
-				./src/Bureaucrat.cpp	\
-				./src/Form.cpp	
+SRC 		= 	./src/main.cpp						\
+				./src/Bureaucrat.cpp				\
+				./src/AForm.cpp						\
+				./src/PresidentialPardonForm.cpp	\
+				./src/RobotomyRequestForm.cpp		\
+				./src/ShrubberyCreationForm.cpp	
 				
 #object files
 OBJDIR 		= obj

@@ -6,12 +6,12 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 12:52:41 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 13:25:37 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Bureaucrat.hpp"
-#include "../header/Form.hpp"
+#include "../header/AForm.hpp"
 #include <iostream>
 #include <stdexcept>
 
@@ -21,11 +21,11 @@ int main()
 	try
 	{
 		//creating default constructor form
-		Form* form1 = new Form();
+		AForm* form1 = new AForm();
 		std::cout << *form1 << std::endl;
 
 		//creating parametric constructor form
-		Form* form2 = new Form("Hallpass", 20, 20);
+		AForm* form2 = new AForm("Hallpass", 20, 20);
 		std::cout << *form2 << std::endl;
 
 		delete form1;
@@ -39,7 +39,7 @@ int main()
 	std::cout << "**\n\n---------------- creating invalid forms ----------------**" << std::endl;
     try 
 	{
-        Form* form3 = new Form("wrongHallPass1", 0, 20);
+        AForm* form3 = new AForm("wrongHallPass1", 0, 20);
         std::cout << *form3 << std::endl;
         delete form3;
     }
@@ -50,7 +50,7 @@ int main()
 
     try 
 	{
-        Form* form4 = new Form("wrongHallPass2", 20, 0);
+        AForm* form4 = new AForm("wrongHallPass2", 20, 0);
         std::cout << *form4 << std::endl;
         delete form4;
     }
@@ -61,7 +61,7 @@ int main()
 
     try 
 	{
-        Form* form5 = new Form("wrongHallPass3", 151, 20);
+        AForm* form5 = new AForm("wrongHallPass3", 151, 20);
         std::cout << *form5 << std::endl;
         delete form5;
     }
@@ -72,7 +72,7 @@ int main()
 
     try 
 	{
-        Form* form6 = new Form("wrongHallPass4", 20, 151);
+        AForm* form6 = new AForm("wrongHallPass4", 20, 151);
         std::cout << *form6 << std::endl;
         delete form6;
     }
@@ -105,7 +105,7 @@ int main()
 	
 	Bureaucrat* intern = new Bureaucrat("intern", 150);
 	std::cout << *intern << std::endl;
-	Form* importantForm = new Form("importantForm", 1, 20);
+	AForm* importantForm = new AForm("importantForm", 1, 20);
 	std::cout << *importantForm << std::endl;
 	
 	try
@@ -123,7 +123,7 @@ int main()
 	
 	Bureaucrat* manager = new Bureaucrat("Manager", 40);
 	std::cout << *manager << std::endl;
-	Form* importantForm1 = new Form("importantForm", 60, 20);
+	AForm* importantForm1 = new AForm("importantForm", 60, 20);
 	std::cout << *importantForm1 << std::endl;
 	
 	try

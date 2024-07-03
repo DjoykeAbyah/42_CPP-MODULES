@@ -6,12 +6,15 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 12:52:41 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 13:04:22 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Bureaucrat.hpp"
 #include "../header/Form.hpp"
+#include "../header/PresidentialPardonForm.hpp"
+#include "../header/RobotomyRequestForm.hpp"
+#include "../header/ShrubberyCreationForm.hpp"
 #include <iostream>
 #include <stdexcept>
 

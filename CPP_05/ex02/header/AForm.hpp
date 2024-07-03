@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.hpp                                           :+:    :+:            */
+/*   AForm.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 12:22:43 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 13:58:17 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 #include <Bureaucrat.hpp>
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		std::string const	_name;
@@ -36,11 +36,11 @@ class Form
 		int const			_executeGrade;
 
 	public:
-		Form();
-		Form(const std::string &name, int signGrade, int executeGrade);
-		Form(const Form &copy);
-		Form& operator=(const Form &copy);
-		~Form();
+		AForm();
+		AForm(const std::string &name, int signGrade, int executeGrade);
+		AForm(const AForm &copy);
+		AForm& operator=(const AForm &copy);
+		virtual ~AForm();
 		
 		std::string const & getName() const;
 		bool getSigned() const;
@@ -48,6 +48,7 @@ class Form
 		int getExecuteGrade() const;
 
 		void beSigned(Bureaucrat bureaucrat);
+		virtual void execute(Bureaucrat const & executor) const = 0;
 
 		class GradeTooHighException : public std::exception
 		{
@@ -66,4 +67,4 @@ class Form
 		};
 };
 
-std::ostream & operator<<(std::ostream & stream, const Form& form);
+std::ostream & operator<<(std::ostream & stream, const AForm& form);
