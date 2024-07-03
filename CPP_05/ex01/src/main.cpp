@@ -6,20 +6,82 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/30 19:15:55 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 12:52:41 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../header/Bureaucrat.hpp"
+#include "../header/Form.hpp"
 #include <iostream>
 #include <stdexcept>
 
-/**
- * @todo need to replace /n with std::endl?
-*/
 int main()
 {
-	std::cout << "** creating valid bureacrats **" << std::endl;
+	std::cout << "**\n\n---------------- creating valid forms ----------------**" << std::endl;
+	try
+	{
+		//creating default constructor form
+		Form* form1 = new Form();
+		std::cout << *form1 << std::endl;
+
+		//creating parametric constructor form
+		Form* form2 = new Form("Hallpass", 20, 20);
+		std::cout << *form2 << std::endl;
+
+		delete form1;
+		delete form2;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+	}
+	
+	std::cout << "**\n\n---------------- creating invalid forms ----------------**" << std::endl;
+    try 
+	{
+        Form* form3 = new Form("wrongHallPass1", 0, 20);
+        std::cout << *form3 << std::endl;
+        delete form3;
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
+
+    try 
+	{
+        Form* form4 = new Form("wrongHallPass2", 20, 0);
+        std::cout << *form4 << std::endl;
+        delete form4;
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
+
+    try 
+	{
+        Form* form5 = new Form("wrongHallPass3", 151, 20);
+        std::cout << *form5 << std::endl;
+        delete form5;
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
+
+    try 
+	{
+        Form* form6 = new Form("wrongHallPass4", 20, 151);
+        std::cout << *form6 << std::endl;
+        delete form6;
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
+	
+	std::cout << "**\n\n---------------- creating valid bureaucrats ----------------**" << std::endl;
 	try
 	{
 		//creating a default bureaucrat
@@ -36,86 +98,44 @@ int main()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << "** creating a bureacrat with grade too low **" << std::endl;
-	try
-	{
-		//creating a bureaucrat with too low grade
-		Bureaucrat* wrongBureaucrat1 = new Bureaucrat("Kees", 180);
-		std::cout << *wrongBureaucrat1 << std::endl;
-
-		//cleanup
-		delete wrongBureaucrat1;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << "** creating a bureacrat with grade to high **" << std::endl;
-	try
-	{
-		//creating a bureaucrat with too high grade
-		Bureaucrat* bureaucrat2 = new Bureaucrat("Kees", 0);
-		std::cout << *bureaucrat2 << std::endl;
-
-		//cleanup
-		delete bureaucrat2;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
 	}
 	
-	Bureaucrat Sally("Sally", 50);
-	std::cout << "** promoting Sally **" << std::endl;
-	try
-	{
-		Sally.incrementGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << "**\n\n---------------- creating form too high to sign by bureaucrat ----------------**" << std::endl;
 	
-	std::cout << "** test if promotion succeeds if Sally is already at the top **" << std::endl;
-	Sally.setGrade(1);
-	std::cout << Sally << std::endl;
+	Bureaucrat* intern = new Bureaucrat("intern", 150);
+	std::cout << *intern << std::endl;
+	Form* importantForm = new Form("importantForm", 1, 20);
+	std::cout << *importantForm << std::endl;
 	
 	try
 	{
-		Sally.incrementGrade();
+		intern->signForm(*importantForm);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
 	}
+	delete intern;
+	delete importantForm;
 
-	std::cout << "** Sally was set on an improvement plan she's at the bottom now**" << std::endl;
-	Sally.setGrade(149);
-	std::cout << Sally << std::endl;
-
-	std::cout << "** demoting Sally **" << std::endl;
+	std::cout << "**\n\n---------------- creating form good to sign by bureaucrat ----------------**" << std::endl;
+	
+	Bureaucrat* manager = new Bureaucrat("Manager", 40);
+	std::cout << *manager << std::endl;
+	Form* importantForm1 = new Form("importantForm", 60, 20);
+	std::cout << *importantForm1 << std::endl;
+	
 	try
 	{
-		Sally.decrementGrade();
+		manager->signForm(*importantForm1);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
 	}
-
-	std::cout << "** demoting Sally again**" << std::endl;
-	std::cout << Sally << std::endl;
-	try
-	{
-		Sally.decrementGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	delete manager;
+	delete importantForm1;
+	
 	return 0;
 }

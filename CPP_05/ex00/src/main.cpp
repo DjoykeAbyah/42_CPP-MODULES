@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 10:34:35 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 12:10:52 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include <iostream>
 #include <stdexcept>
 
-/**
- * @todo need to replace /n with std::endl?
-*/
 int main()
 {
 	std::cout << "** creating valid bureacrats **" << std::endl;

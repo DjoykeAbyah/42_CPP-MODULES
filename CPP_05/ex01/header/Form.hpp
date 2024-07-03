@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 11:24:29 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 12:22:43 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,8 @@
 #include <iostream>
 #include <stdexcept>
 #include <Bureaucrat.hpp>
+class Bureaucrat;
 
-/**
- * write:
- * 			- Add also a beSigned() member function to the Form that takes a Bureaucrat as
-			parameter. It changes the form status to signed if the bureaucrat’s grade is high enough
-			(higher or egal to the required one). Remember, grade 1 is higher than grade 2.
-			If the grade is too low, throw a Form::GradeTooLowException.
-			- Lastly, add a signForm() member function to the Bureaucrat. If the form got signed,
-			it will print something like:
-											<bureaucrat> signed <form>
-			Otherwise, it will print something like:
-											<bureaucrat> couldn’t sign <form> because <reason>.
-*/
 class Form
 {
 	private:

@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:42 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 11:32:53 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 12:24:19 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,11 @@ void Form::beSigned(Bureaucrat bureaucrat){
 		throw Form::GradeTooLowException();
 }
 
-/**
- * @todo write an overload of the insertion («) operator that prints all the form’s informations
-*/
 std::ostream & operator<<(std::ostream & stream, const Form& form){
 	stream << ORANGE <<"form name: "
 	<< RESET << YELLOW << form.getName()
 	<< RESET << ORANGE << ", form sign status " 
-	<< RESET << YELLOW << form.getSigned() 
+	<< RESET << YELLOW << std::boolalpha << form.getSigned() 
 	<< RESET << ORANGE << ", form signGrade " 
 	<< RESET << YELLOW << form.getSignGrade()
 	<< RESET << ORANGE << ", form executeGrade " 

@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:25 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 11:31:29 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 12:51:44 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 //default lowest grade
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150){
-	std::cout << BLUE << "default constructor created, bureaucrat named: " << RESET 
-	<< CYAN << _name << RESET << BLUE << " with grade: " 
-	<< RESET << CYAN << _grade << RESET << std::endl;
+	std::cout << BLUE << "Bureaucrat default constructor called" << RESET << RESET << std::endl;
 }
 
 /**
@@ -29,21 +27,15 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name){
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
-	std::cout << BLUE << "parametric constructor created, bureaucrat named: " 
-	<< RESET << CYAN << _name << RESET << BLUE << " with grade: " 
-	<< RESET << CYAN << _grade << RESET << std::endl;
+	std::cout << BLUE << "Bureaucrat parametric constructor called" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade){
-	std::cout << BLUE << "copy constructor created, bureaucrat named: " 
-	<< RESET << CYAN << _name << RESET << BLUE << " with grade: " 
-	<< RESET << CYAN << _grade << RESET << std::endl;
+	std::cout << BLUE << "Bureaucrat copy constructor called" << RESET << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy){
-	std::cout << BLUE << "copy assignment overloader created, bureaucrat named: " 
-	<< RESET << CYAN << _name << RESET << BLUE << " with grade: " 
-	<< RESET << CYAN << _grade << RESET << std::endl;
+	std::cout << BLUE << "Bureaucrat copy assignment overloader called " << RESET << std::endl;
 	// Only _grade can be changed as _name is const
 	if (this != &copy)
 		_grade = copy._grade;
@@ -51,9 +43,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy){
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << RED << "destructor called for bureaucrat named: " << RESET 
-	<< MAGENTA << _name << RESET << RED << " with grade: " 
-	<< RESET << MAGENTA << _grade << RESET << std::endl;
+	std::cout << RED << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
 void Bureaucrat::setGrade(int grade){
@@ -90,7 +80,7 @@ void Bureaucrat::signForm(Form& form){
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << this->_name << " couldn't sign: " << form.getName() << "because " << e.what() << std::endl;
+		std::cout << this->_name << " couldn't sign: " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
