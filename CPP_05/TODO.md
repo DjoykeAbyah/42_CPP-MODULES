@@ -1,5 +1,4 @@
 ex02
-1) turn Form into AForm (abstract class)
 add concrete classes:
 	2) ShrubberyCreationForm
 	3) RobotomyRequestForm

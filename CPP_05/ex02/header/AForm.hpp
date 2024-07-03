@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 13:58:17 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 14:44:51 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,14 @@ class AForm
 			virtual const char* what() const throw()
 			{
 				return "grade too low";
+			}					
+		};
+
+		class NotSignedException : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "form not signed";
 			}					
 		};
 };

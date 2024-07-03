@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:25 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 12:51:44 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 15:20:28 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void Bureaucrat::decrementGrade(){
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form& form){
+void Bureaucrat::signForm(AForm& form){
 	try
 	{
 		form.beSigned(*this);//try to use sign method for this form

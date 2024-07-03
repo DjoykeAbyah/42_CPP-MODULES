@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:42 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 12:24:19 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 14:34:34 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Form& Form::operator=(const Form &copy){
 }
 
 Form::~Form(){
-	std::cout << RED << "destructor called for Form named: " << RESET << std::endl;
+	std::cout << RED << "destructor called" << RESET << std::endl;
 }
 
 std::string const & Form::getName() const{

@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 12:19:24 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 15:19:51 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 #include <iostream>
 #include <stdexcept>
-#include "Form.hpp"
-class Form;
+#include "AForm.hpp"
+class AForm;
 
 class Bureaucrat
 {
@@ -47,7 +47,7 @@ class Bureaucrat
 
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(Form &form);
+		void signForm(AForm &form);
 
 		class GradeTooHighException : public std::exception
 		{
