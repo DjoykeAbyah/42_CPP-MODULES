@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 15:19:51 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 15:40:30 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(AForm &form);
+		void executeForm(AForm const & form);
 
 		class GradeTooHighException : public std::exception
 		{

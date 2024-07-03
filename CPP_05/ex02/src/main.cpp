@@ -6,35 +6,66 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 15:20:16 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/03 16:12:29 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Bureaucrat.hpp"
+#include "../header/ShrubberyCreationForm.hpp"
+#include "../header/RobotomyRequestForm.hpp"
+#include "../header/PresidentialPardonForm.hpp"
 #include "../header/AForm.hpp"
 #include <iostream>
 #include <stdexcept>
 
 int main()
 {
-	// std::cout << "**\n\n---------------- creating valid forms ----------------**" << std::endl;
-	// try
-	// {
-	// 	//creating default constructor form
-	// 	AForm* form1 = new AForm();
-	// 	std::cout << *form1 << std::endl;
+	std::cout << "**\n\n---------------- creating valid forms ----------------**" << std::endl;
+	try
+	{
+		//creating default constructor form
+		ShrubberyCreationForm* form1 = new ShrubberyCreationForm("Kitchen");
+		std::cout << *form1 << std::endl;
+		
+		Bureaucrat* boss = new Bureaucrat("Boss", 150);
+		std::cout << *boss << std::endl;
 
-	// 	//creating parametric constructor form
-	// 	AForm* form2 = new AForm("Hallpass", 20, 20);
-	// 	std::cout << *form2 << std::endl;
+		boss->executeForm(*form1);
 
-	// 	delete form1;
-	// 	delete form2;
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-	// }
+		delete form1;
+		delete boss;
+		// delete form2;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+	}
+
+
+
+
+	std::cout << "**\n\n---------------- creating valid forms ----------------**" << std::endl;
+	try
+	{
+		//creating default constructor form
+		ShrubberyCreationForm form1("Kitchen");
+		std::cout << form1 << std::endl;
+		
+		Bureaucrat boss("Boss", 150);
+		std::cout << boss << std::endl;
+
+		// //creating parametric constructor form
+		// AForm* form2 = new AForm("Hallpass", 20, 20);
+		// std::cout << *form2 << std::endl;
+		boss.executeForm(form1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+	}
+	
+
+
 	
 	// std::cout << "**\n\n---------------- creating invalid forms ----------------**" << std::endl;
     // try 
