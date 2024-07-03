@@ -1,6 +1,5 @@
 ex02
 add concrete classes:
-	2) ShrubberyCreationForm
 	3) RobotomyRequestForm
 	4) PresidentialPardonForm
 5) add execute to base Form
