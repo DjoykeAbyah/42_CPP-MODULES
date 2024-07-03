@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/03 13:02:58 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/03 16:56:52 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ clean:
 
 fclean: clean
 	@ rm -f $(NAME)
+	@ rm -f *.txt
 	@ echo "${YELLOW}Cleaning done${DONE}"
 
 re:	fclean all
