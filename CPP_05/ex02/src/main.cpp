@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:53:08 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/04 19:42:23 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,121 +29,128 @@ int main()
 		std::cout << form2 << std::endl;
 		RobotomyRequestForm form3("Ron");
 		std::cout << form3 << std::endl;
+		std::cout << '\n';
 		
 		Bureaucrat boss("Boss", 1);
 		std::cout << boss << std::endl;
+		std::cout << '\n';
+		
 		boss.signForm(form1);
 		boss.signForm(form2);
 		boss.signForm(form3);
+		std::cout << '\n';
+		
 		boss.executeForm(form1);
 		boss.executeForm(form2);
 		boss.executeForm(form3);
+		std::cout << '\n';
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
 	}
 	
-	// std::cout << "**\n\n---------------- creating invalid forms ----------------**" << std::endl;
-    // try 
-	// {
-    //     AForm* form3 = new AForm("wrongHallPass1", 0, 20);
-    //     std::cout << *form3 << std::endl;
-    //     delete form3;
-    // }
-    // catch (const std::exception& e) 
-	// {
-    //     std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-    // }
+	std::cout << "**\n\n---------------- creating form bureaucrat can't sign ----------------**" << std::endl;
+    try 
+	{
+		ShrubberyCreationForm form1("Garden");
+		std::cout << form1 << std::endl;
+		PresidentialPardonForm form2("Shoplifter");
+		std::cout << form2 << std::endl;
+		RobotomyRequestForm form3("Toaster");// output changes because of random generator
+		std::cout << form3 << std::endl;
+		std::cout << '\n';
 
-    // try 
-	// {
-    //     AForm* form4 = new AForm("wrongHallPass2", 20, 0);
-    //     std::cout << *form4 << std::endl;
-    //     delete form4;
-    // }
-    // catch (const std::exception& e) 
-	// {
-    //     std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-    // }
+		Bureaucrat newbie("Newbie", 150);
+		std::cout << newbie << std::endl;
+		std::cout << '\n';
 
-    // try 
-	// {
-    //     AForm* form5 = new AForm("wrongHallPass3", 151, 20);
-    //     std::cout << *form5 << std::endl;
-    //     delete form5;
-    // }
-    // catch (const std::exception& e) 
-	// {
-    //     std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-    // }
-
-    // try 
-	// {
-    //     AForm* form6 = new AForm("wrongHallPass4", 20, 151);
-    //     std::cout << *form6 << std::endl;
-    //     delete form6;
-    // }
-    // catch (const std::exception& e) 
-	// {
-    //     std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-    // }
-	
-	// std::cout << "**\n\n---------------- creating valid bureaucrats ----------------**" << std::endl;
-	// try
-	// {
-	// 	//creating a default bureaucrat
-	// 	Bureaucrat* bureaucrat1 = new Bureaucrat();
-	// 	std::cout << *bureaucrat1 << std::endl;
+		newbie.signForm(form1);
+		newbie.signForm(form2);
+		newbie.signForm(form3);
+		std::cout << '\n';
 		
-	// 	//creating a parametric constructed valid bureaucrat
-	// 	Bureaucrat* bureaucrat2 = new Bureaucrat("Henk", 2);
-	// 	std::cout << *bureaucrat2 << std::endl;
+		newbie.executeForm(form1);
+		newbie.executeForm(form2);
+		newbie.executeForm(form3);
+		std::cout << '\n';
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
 
-	// 	//cleanup
-	// 	delete bureaucrat1;
-	// 	delete bureaucrat2;
-	// }
-	// catch (const std::exception &e)
-	// {
-	// 	std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-	// }
-	
-	// std::cout << "**\n\n---------------- creating form too high to sign by bureaucrat ----------------**" << std::endl;
-	
-	// Bureaucrat* intern = new Bureaucrat("intern", 150);
-	// std::cout << *intern << std::endl;
-	// AForm* importantForm = new AForm("importantForm", 1, 20);
-	// std::cout << *importantForm << std::endl;
-	
-	// try
-	// {
-	// 	intern->signForm(*importantForm);
-	// }
-	// catch (const std::exception& e)
-	// {
-	// 	std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-	// }
-	// delete intern;
-	// delete importantForm;
+	std::cout << "**\n\n---------------- creating Shrubbery form can't execute ----------------**" << std::endl;
+    try 
+	{
+		ShrubberyCreationForm form1("Garden");
+		std::cout << form1 << std::endl;
+		std::cout << '\n';
 
-	// std::cout << "**\n\n---------------- creating form good to sign by bureaucrat ----------------**" << std::endl;
+		Bureaucrat newbie1("Newbie1", 145);
+		Bureaucrat newbie2("Newbie2", 140);
+		std::cout << newbie1 << std::endl;
+		std::cout << newbie2 << std::endl;
+		std::cout << '\n';
+
+		newbie1.signForm(form1);
+		std::cout << '\n';
+		
+		newbie2.executeForm(form1);
+		std::cout << '\n';
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
+
+	std::cout << "**\n\n---------------- creating Robotomy form can't execute ----------------**" << std::endl;
+    try 
+	{
+		RobotomyRequestForm form1("Microwave");
+		std::cout << form1 << std::endl;
+		std::cout << '\n';
+
+		Bureaucrat newbie1("Newbie1", 70);
+		Bureaucrat newbie2("Newbie2", 60);
+		std::cout << newbie1 << std::endl;
+		std::cout << newbie2 << std::endl;
+		std::cout << '\n';
+
+		newbie1.signForm(form1);
+		std::cout << '\n';
+		
+		newbie2.executeForm(form1);
+		std::cout << '\n';
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
 	
-	// Bureaucrat* manager = new Bureaucrat("Manager", 40);
-	// std::cout << *manager << std::endl;
-	// AForm* importantForm1 = new AForm("importantForm", 60, 20);
-	// std::cout << *importantForm1 << std::endl;
-	
-	// try
-	// {
-	// 	manager->signForm(*importantForm1);
-	// }
-	// catch (const std::exception& e)
-	// {
-	// 	std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-	// }
-	// delete manager;
-	// delete importantForm1;
-	
+	std::cout << "**\n\n---------------- creating Presidentail form can't execute ----------------**" << std::endl;
+    try 
+	{
+		PresidentialPardonForm form1("JoyRider");
+		std::cout << form1 << std::endl;
+		std::cout << '\n';
+
+		Bureaucrat newbie1("Newbie1", 20);
+		Bureaucrat newbie2("Newbie2", 10);
+		std::cout << newbie1 << std::endl;
+		std::cout << newbie2 << std::endl;
+		std::cout << '\n';
+
+		newbie1.signForm(form1);
+		std::cout << '\n';
+		
+		newbie2.executeForm(form1);
+		std::cout << '\n';
+    }
+    catch (const std::exception& e) 
+	{
+        std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+    }
+
 	return 0;
 }

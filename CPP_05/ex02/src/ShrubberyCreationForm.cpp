@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:21 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:35:55 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/04 18:41:08 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : _target("Default target"){
  * The constructor takes the name as a const std::string&
  * to avoid issues with temporary objects
 */
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Default Shrubbery Creation Form", 145, 137), _target(target){
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery Creation Form", 145, 137), _target(target){
 	std::cout << BLUE << "Shrubbery parametric constructor called" << RESET << std::endl;
 }
 
@@ -48,7 +48,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){
  */
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	try {
-		if (!this->getSigned()){
+		if (this->getSigned() == false){
 			throw NotSignedException();
 		}
 		
@@ -68,9 +68,14 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 		}
 	}
 	catch (const std::ios_base::failure& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;;
+		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << executor.getName() << YELLOW << " couldn't execute " << RESET << this->getName() << std::endl;
+		return ;
 	}
 	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;;
+		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << executor.getName() << YELLOW <<" couldn't execute " << RESET << this->getName() << std::endl;
+		return ;
 	}
+	std::cout << executor.getName() << GREEN << " executed " << RESET << this->getName() << std::endl;
 }	

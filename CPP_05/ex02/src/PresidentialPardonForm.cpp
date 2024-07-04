@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:16 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:53:45 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/04 18:40:55 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ PresidentialPardonForm::PresidentialPardonForm() : _target("Default target"){
  * The constructor takes the name as a const std::string&
  * to avoid issues with temporary objects
 */
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("Default Presidential Creation Form", 25, 5), _target(target){
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("Presidential Creation Form", 25, 5), _target(target){
 	std::cout << BLUE << "Presidential parametric constructor called" << RESET << std::endl;
 }
 
@@ -58,6 +58,9 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 		}
 	}
 	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;;
+		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << executor.getName() << YELLOW << " couldn't execute " << RESET << this->getName() << std::endl;
+		return ;
 	}
+	std::cout << executor.getName() << GREEN << " executed " << RESET << this->getName() << std::endl;
 }

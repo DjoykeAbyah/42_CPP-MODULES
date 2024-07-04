@@ -6,11 +6,13 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:19 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:53:49 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/04 19:40:25 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib> // For rand() and srand()
+#include <ctime>   // For time()
 
 RobotomyRequestForm::RobotomyRequestForm() : _target("Default target"){
 	std::cout << BLUE << "Robotomy constructor called" << RESET << std::endl;
@@ -20,7 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm() : _target("Default target"){
  * The constructor takes the name as a const std::string&
  * to avoid issues with temporary objects
 */
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("Default Robotomy Creation Form", 72, 45), _target(target){
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("Robotomy Creation Form", 72, 45), _target(target){
 	std::cout << BLUE << "Robotomy parametric constructor called" << RESET << std::endl;
 }
 
@@ -41,6 +43,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
+	
 	try {
 		if (!this->getSigned()){
 			throw NotSignedException();
@@ -49,15 +52,19 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 		else if (executor.getGrade() > this->getExecuteGrade()){
 			throw AForm::GradeTooLowException();
 		}
-			
-		else {
-			if (rand() % 2 == 0)
-				std::cout << "DRILLING NOICES " << this->_target << " has been robotomized successfully" << std::endl;
-			else
-				std::cout << "DRILLING NOICES " << this->_target << " has not been robotomized" << std::endl;
-		}
+		
+		std::cout << BOLD_TEXT << MAGENTA << "DRILLING NOICES " << RESET <<	std::endl;
+		std::srand(static_cast<unsigned>(std::time(NULL)));
+		unsigned int i = rand();
+		if (i % 2 == 0)
+			std::cout << this->_target << GREEN << " has been robotomized successfully" << RESET << std::endl;
+		else
+			std::cout << this->_target << RED << " has not been robotomized" << RESET << std::endl;
 	}
 	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;;
+		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << executor.getName() << YELLOW << " couldn't execute " << RESET << this->getName() << std::endl;
+		return ;
 	}
+	std::cout << executor.getName() << GREEN << " executed " << RESET << this->getName() << std::endl;
 }
