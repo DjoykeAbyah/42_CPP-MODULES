@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:19 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/04 19:40:25 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/04 19:48:52 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 			throw AForm::GradeTooLowException();
 		}
 		
-		std::cout << BOLD_TEXT << MAGENTA << "DRILLING NOICES " << RESET <<	std::endl;
 		std::srand(static_cast<unsigned>(std::time(NULL)));
 		unsigned int i = rand();
+		
+		std::cout << BOLD_TEXT << MAGENTA << "DRILLING NOICES " << RESET <<	std::endl;
 		if (i % 2 == 0)
 			std::cout << this->_target << GREEN << " has been robotomized successfully" << RESET << std::endl;
 		else
