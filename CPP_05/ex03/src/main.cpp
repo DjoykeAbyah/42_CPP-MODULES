@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:53:08 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/07 15:28:38 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,38 @@
 #include "../header/RobotomyRequestForm.hpp"
 #include "../header/PresidentialPardonForm.hpp"
 #include "../header/AForm.hpp"
+#include "../header/Intern.hpp"
 #include <iostream>
 #include <stdexcept>
 
 int main()
 {
-	std::cout << "**\n\n---------------- creating valid forms ----------------**" << std::endl;
-	try
-	{
-		ShrubberyCreationForm form1("Kitchen");
-		std::cout << form1 << std::endl;
-		PresidentialPardonForm form2("Criminal");
-		std::cout << form2 << std::endl;
-		RobotomyRequestForm form3("Ron");
-		std::cout << form3 << std::endl;
+	Intern someRandomIntern;
+	Form* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	// std::cout << "**\n\n---------------- creating valid forms ----------------**" << std::endl;
+	// try
+	// {
+	// 	ShrubberyCreationForm form1("Kitchen");
+	// 	std::cout << form1 << std::endl;
+	// 	PresidentialPardonForm form2("Criminal");
+	// 	std::cout << form2 << std::endl;
+	// 	RobotomyRequestForm form3("Ron");
+	// 	std::cout << form3 << std::endl;
 		
-		Bureaucrat boss("Boss", 1);
-		std::cout << boss << std::endl;
-		boss.signForm(form1);
-		boss.signForm(form2);
-		boss.signForm(form3);
-		boss.executeForm(form1);
-		boss.executeForm(form2);
-		boss.executeForm(form3);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-	}
+	// 	Bureaucrat boss("Boss", 1);
+	// 	std::cout << boss << std::endl;
+	// 	boss.signForm(form1);
+	// 	boss.signForm(form2);
+	// 	boss.signForm(form3);
+	// 	boss.executeForm(form1);
+	// 	boss.executeForm(form2);
+	// 	boss.executeForm(form3);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+	// }
 	
 	// std::cout << "**\n\n---------------- creating invalid forms ----------------**" << std::endl;
     // try 
