@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:16 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/04 18:40:55 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/07 18:39:52 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ PresidentialPardonForm::~PresidentialPardonForm(){
 	std::cout << RED << "Presidential destructor called " << RESET << std::endl;
 }
 
-/**
- * @todo make function
- */
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 	try {
 		if (!this->getSigned()){
