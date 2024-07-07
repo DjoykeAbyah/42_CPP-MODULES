@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/07 15:28:38 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/07 19:06:23 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,42 @@
 
 int main()
 {
+	std::cout << "**\n\n---------------- test ----------------**" << std::endl;
+	
 	Intern someRandomIntern;
-	Form* rrf;
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	// std::cout << "**\n\n---------------- creating valid forms ----------------**" << std::endl;
-	// try
-	// {
-	// 	ShrubberyCreationForm form1("Kitchen");
-	// 	std::cout << form1 << std::endl;
-	// 	PresidentialPardonForm form2("Criminal");
-	// 	std::cout << form2 << std::endl;
-	// 	RobotomyRequestForm form3("Ron");
-	// 	std::cout << form3 << std::endl;
+
+	
+	AForm* form1 = someRandomIntern.makeForm("robotomy request", "Bender");
+	AForm* form2 = someRandomIntern.makeForm("presidential pardon", "Shoplifter");
+	AForm* form3 = someRandomIntern.makeForm("shrubbery creation", "Lawn");
+	AForm* form4 = someRandomIntern.makeForm("dietary restriction", "Donut");
+	
+	try
+	{
 		
-	// 	Bureaucrat boss("Boss", 1);
-	// 	std::cout << boss << std::endl;
-	// 	boss.signForm(form1);
-	// 	boss.signForm(form2);
-	// 	boss.signForm(form3);
-	// 	boss.executeForm(form1);
-	// 	boss.executeForm(form2);
-	// 	boss.executeForm(form3);
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
-	// }
+		Bureaucrat boss("Boss", 140);
+		std::cout << boss << std::endl;
+		Bureaucrat henk("Henk", 130);
+		std::cout << henk << std::endl;
+		boss.signForm(*form1);
+		boss.signForm(*form2);
+		boss.signForm(*form3);
+		boss.signForm(*form4);
+		henk.executeForm(*form1);
+		henk.executeForm(*form2);
+		henk.executeForm(*form3);
+		henk.executeForm(*form4);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << BOLD_TEXT << "Exception caught: " << e.what() << RESET << std::endl;
+	}
+	
+	delete form1;
+	delete form2;
+	delete form3;
+	delete form4;
+
 	
 	// std::cout << "**\n\n---------------- creating invalid forms ----------------**" << std::endl;
     // try 

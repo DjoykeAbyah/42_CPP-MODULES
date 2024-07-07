@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:21 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:35:55 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/07 18:56:11 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			throw NotSignedException();
 		}
 		
-		else if (executor.getGrade() > this->getExecuteGrade()){
+		else if (executor.getGrade() < this->getExecuteGrade()){
 			throw AForm::GradeTooLowException();
 		}
 			
@@ -70,7 +70,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	catch (const std::ios_base::failure& e){
 		std::cout << "Exception caught: " << e.what() << std::endl;;
 	}
-	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;;
-	}
+	// catch (const std::exception& e){
+	// 	std::cout << "Exception caught: " << e.what() << std::endl;;
+	// }
 }	

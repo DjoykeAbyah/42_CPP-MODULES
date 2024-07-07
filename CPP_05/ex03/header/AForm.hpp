@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 14:44:51 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/07 19:37:10 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ class AForm
 		int getExecuteGrade() const;
 
 		void beSigned(Bureaucrat bureaucrat);
-		virtual void execute(Bureaucrat const & executor) const = 0;
+		virtual void execute(Bureaucrat const & executor);
+		
+		virtual void action() const = 0; //pure virtual function
 
 		class GradeTooHighException : public std::exception
 		{

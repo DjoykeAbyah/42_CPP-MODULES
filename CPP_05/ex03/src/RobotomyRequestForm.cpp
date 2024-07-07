@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:19 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:53:49 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/07 18:56:27 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
-	try {
+	// try {
 		if (!this->getSigned()){
 			throw NotSignedException();
 		}
 		
-		else if (executor.getGrade() > this->getExecuteGrade()){
+		else if (executor.getGrade() < this->getExecuteGrade()){
 			throw AForm::GradeTooLowException();
 		}
 			
@@ -56,8 +56,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 			else
 				std::cout << "DRILLING NOICES " << this->_target << " has not been robotomized" << std::endl;
 		}
-	}
-	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;;
-	}
+	// }
+	// catch (const std::exception& e){
+	// 	std::cout << "Exception caught: " << e.what() << std::endl;;
+	// }
 }
