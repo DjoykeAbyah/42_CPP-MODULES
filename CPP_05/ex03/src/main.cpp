@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:03:29 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/07 19:06:23 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:08:47 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,31 @@ int main()
 	AForm* form2 = someRandomIntern.makeForm("presidential pardon", "Shoplifter");
 	AForm* form3 = someRandomIntern.makeForm("shrubbery creation", "Lawn");
 	AForm* form4 = someRandomIntern.makeForm("dietary restriction", "Donut");
+	std::cout << '\n';
 	
 	try
 	{
 		
-		Bureaucrat boss("Boss", 140);
+		Bureaucrat boss("Boss", 1);
 		std::cout << boss << std::endl;
 		Bureaucrat henk("Henk", 130);
 		std::cout << henk << std::endl;
+		std::cout << '\n';
+		
 		boss.signForm(*form1);
 		boss.signForm(*form2);
 		boss.signForm(*form3);
-		boss.signForm(*form4);
-		henk.executeForm(*form1);
-		henk.executeForm(*form2);
-		henk.executeForm(*form3);
-		henk.executeForm(*form4);
+		// boss.signForm(*form4);
+		std::cout << '\n';
+		
+		boss.executeForm(*form1);
+		boss.executeForm(*form2);
+		boss.executeForm(*form3);
+		// henk.executeForm(*form1);
+		// henk.executeForm(*form2);
+		// henk.executeForm(*form3);
+		// henk.executeForm(*form4);
+		std::cout << '\n';
 	}
 	catch(const std::exception& e)
 	{

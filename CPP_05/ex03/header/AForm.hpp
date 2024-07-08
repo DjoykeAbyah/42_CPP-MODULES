@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/07 19:37:10 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 13:40:20 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,14 @@ class AForm
 		AForm& operator=(const AForm &copy);
 		virtual ~AForm();
 		
-		std::string const & getName() const;
-		bool getSigned() const;
-		int getSignGrade() const;
-		int getExecuteGrade() const;
+		std::string const & 	getName() const;
+		bool 					getSigned() const;
+		int 					getSignGrade() const;
+		int 					getExecuteGrade() const;
 
-		void beSigned(Bureaucrat bureaucrat);
-		virtual void execute(Bureaucrat const & executor);
-		
-		virtual void action() const = 0; //pure virtual function
+		void 					beSigned(Bureaucrat bureaucrat);
+		virtual void 			execute(Bureaucrat const & executor) const;
+		virtual void 			action() const = 0; //pure virtual function
 
 		class GradeTooHighException : public std::exception
 		{

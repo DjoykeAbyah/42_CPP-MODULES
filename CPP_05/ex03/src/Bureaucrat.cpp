@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:25 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/07 19:34:42 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:07:41 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //default lowest grade
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150){
-	std::cout << BLUE << "Bureaucrat default constructor called" << RESET << RESET << std::endl;
+	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 /**
@@ -27,15 +27,15 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name){
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
-	std::cout << BLUE << "Bureaucrat parametric constructor called" << RESET << std::endl;
+	std::cout << "Bureaucrat parametric constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade){
-	std::cout << BLUE << "Bureaucrat copy constructor called" << RESET << std::endl;
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy){
-	std::cout << BLUE << "Bureaucrat copy assignment overloader called " << RESET << std::endl;
+	std::cout << "Bureaucrat copy assignment overloader called " << std::endl;
 	// Only _grade can be changed as _name is const
 	if (this != &copy)
 		_grade = copy._grade;
@@ -43,7 +43,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy){
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << RED << "Bureaucrat destructor called" << RESET << std::endl;
+	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 void Bureaucrat::setGrade(int grade){
@@ -74,21 +74,29 @@ void Bureaucrat::decrementGrade(){
 
 void Bureaucrat::signForm(AForm& form){
 	try {
-		form.beSigned(*this);//try to use sign method for this form
-		std::cout << this->_name << " signed: " << form.getName() << std::endl;
+		form.beSigned(*this);
+		std::cout << BLUE << BOLD_TEXT << this->_name << RESET 
+		<< GREEN << " signed: " << RESET << BLUE 
+		<< form.getName() << RESET << std::endl;
 	}
 	catch (const std::exception& e){
-		std::cout << this->_name << " couldn't sign: " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << BLUE << BOLD_TEXT << this->_name << RESET 
+		<< RED <<" couldn't sign: " << RESET << BLUE << form.getName() 
+		<< " because " << e.what() << RESET << std::endl;
 	}
 }
 
 void Bureaucrat::executeForm(AForm const &form){
 	try {
 		form.execute(*this);
-		std::cout << this->_name << " executed " << form.getName() << std::endl;
+		std::cout << CYAN << BOLD_TEXT << this->_name << RESET 
+		<< GREEN << " executed " << RESET << CYAN 
+		<< form.getName() << RESET << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << this->_name << " couldn't execute " << form.getName() << std::endl;
+		std::cout << CYAN << BOLD_TEXT << this->_name << RESET 
+		<< RED << " couldn't execute " << RESET << CYAN 
+		<< form.getName() << RESET <<std::endl;
 	}
 }
 

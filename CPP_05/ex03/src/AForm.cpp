@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:42 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/07 18:23:36 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:00:43 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //default lowest grade
 AForm::AForm() : _name("Default"), _signed(false), _signGrade(150), _executeGrade(150){
-	std::cout << BLUE << "AForm default constructor called" << RESET << std::endl;
+	std::cout <<  "AForm default constructor called" << std::endl;
 }
 
 /**
@@ -27,22 +27,22 @@ AForm::AForm(const std::string &name, int signGrade, int executeGrade) : _name(n
 	if (signGrade > 150 || executeGrade > 150)
 		throw AForm::GradeTooLowException();
 	_signed = false;
-	std::cout << BLUE << "AForm parametric constructor called" << RESET << std::endl;
+	std::cout << "AForm parametric constructor called" << std::endl;
 }
 
 AForm::AForm(const AForm &copy) : _name(copy._name), _signGrade(copy._signGrade), _executeGrade(copy._executeGrade){
-	std::cout << BLUE << "AForm copy constructor called" << RESET << std::endl;
+	std::cout << "AForm copy constructor called" << std::endl;
 }
 
 AForm& AForm::operator=(const AForm &copy){
-	std::cout << BLUE << "AForm operator overloader called" << RESET << std::endl;
+	std::cout << "AForm operator overloader called" << std::endl;
 	if (this != &copy)
 		_signed = copy._signed;
 	return *this;
 }
 
 AForm::~AForm(){
-	std::cout << RED << "AForm destructor called" << RESET << std::endl;
+	std::cout << "AForm destructor called" << std::endl;
 }
 
 std::string const & AForm::getName() const{
@@ -66,6 +66,14 @@ void AForm::beSigned(Bureaucrat bureaucrat){
 		_signed = true;
 	else
 		throw AForm::GradeTooLowException();
+}
+
+void AForm::execute(Bureaucrat const & executor) const{
+	    if (!this->getSigned())
+        throw NotSignedException();
+    if (executor.getGrade() > this->getExecuteGrade())
+        throw GradeTooLowException();
+    action();
 }
 
 std::ostream & operator<<(std::ostream & stream, const AForm& form){

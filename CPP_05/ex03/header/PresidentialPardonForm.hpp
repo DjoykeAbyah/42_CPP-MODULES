@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:57:17 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:43:15 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 13:58:34 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm& operator=(const PresidentialPardonForm &copy);
 		virtual ~PresidentialPardonForm();
 		
-		void execute(Bureaucrat const & executor) const;
+		// void execute(Bureaucrat const & executor) const;
+		void action() const override;
 };
