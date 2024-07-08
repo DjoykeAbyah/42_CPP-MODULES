@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 16:59:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/08 14:04:30 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:34:31 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ AForm* Intern::createShrubberyCreationForm(const std::string &target){
  * 				and taking a const std::string& as a parameter.
  *			-	formTypes is an array of FormType structs, 
  *				mapping form names to their respective creation functions.
- * @todo create exception or throw?
  */
 AForm* Intern::makeForm(std::string formName, std::string formTarget){
 
@@ -59,7 +58,6 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget){
 			return formTypes[i].creatorName(formTarget);
 		}
 	}
-	// throw std::invalid_argument("Intern couldn't create form: " + formName);
 	std::cout << BLUE << "Intern couldn't create form: "  
 	<< BOLD_TEXT << formName << RESET << std::endl;
 	return nullptr;
