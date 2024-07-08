@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:19 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/07 15:39:16 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:30:00 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,17 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 	std::cout << RED << "Robotomy destructor called " << RESET << std::endl;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
-	
-	try {
-		if (!this->getSigned()){
-			throw NotSignedException();
-		}
+void RobotomyRequestForm::action() const{
+	std::cout << ORANGE << "DRILLING NOISES....";
+	if (rand() % 2 == 0)
+	{
+		std::cout << BOLD_TEXT << this->_target << RESET 
+		<< GREEN << " has been robotomized successfully" << RESET << std::endl;
 		
-		else if (executor.getGrade() > this->getExecuteGrade()){
-			throw AForm::GradeTooLowException();
-		}
-		
-		std::srand(static_cast<unsigned>(std::time(NULL)));
-		unsigned int i = rand();
-		
-		std::cout << BOLD_TEXT << MAGENTA << "DRILLING NOICES " << RESET <<	std::endl;
-		if (i % 2 == 0)
-			std::cout << this->_target << GREEN << " has been robotomized successfully" << RESET << std::endl;
-		else
-			std::cout << this->_target << RED << " has not been robotomized" << RESET << std::endl;
 	}
-	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;
-		std::cout << executor.getName() << YELLOW << " couldn't execute " << RESET << this->getName() << std::endl;
-		return ;
+	else
+	{
+		std::cout << BOLD_TEXT << this->_target << RESET 
+		<< RED << " has not been robotomized" << RESET << std::endl;
 	}
-	std::cout << executor.getName() << GREEN << " executed " << RESET << this->getName() << std::endl;
 }

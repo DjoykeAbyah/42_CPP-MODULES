@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 19:18:42 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 14:35:21 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:28:47 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ void AForm::beSigned(Bureaucrat bureaucrat){
 		_signed = true;
 	else
 		throw AForm::GradeTooLowException();
+}
+
+void AForm::execute(Bureaucrat const & executor) const{
+	    if (!this->getSigned())
+        throw NotSignedException();
+    if (executor.getGrade() > this->getExecuteGrade())
+        throw GradeTooLowException();
+    action();
 }
 
 std::ostream & operator<<(std::ostream & stream, const AForm& form){

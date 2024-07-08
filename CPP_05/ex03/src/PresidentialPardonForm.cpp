@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:16 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/08 13:58:54 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:29:43 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ PresidentialPardonForm::~PresidentialPardonForm(){
 	std::cout << "Presidential destructor called " << std::endl;
 }
 
-// void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 void PresidentialPardonForm::action() const {
 		std::cout << BOLD_TEXT << MAGENTA << this->_target << RESET 
 		<< MAGENTA << " has been pardoned by Zaphod Beeblebrox" << RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:21 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/08 14:01:39 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:30:35 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){
  * Failing to read from or write to a stream.
  * Other I/O-related errors.
  */
-// void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 void ShrubberyCreationForm::action() const{
 	try {
 		std::string filename = this->_target + "_shrubbery.txt";

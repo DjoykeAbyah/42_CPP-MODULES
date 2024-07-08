@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:21 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/04 18:41:08 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:30:27 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,36 +46,18 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){
  * Failing to read from or write to a stream.
  * Other I/O-related errors.
  */
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
+void ShrubberyCreationForm::action() const{
 	try {
-		if (this->getSigned() == false){
-			throw NotSignedException();
-		}
-		
-		else if (executor.getGrade() > this->getExecuteGrade()){
-			throw AForm::GradeTooLowException();
-		}
-			
-		else {
-			std::string filename = this->_target + "_shrubbery.txt";
-			std::ofstream outfile(filename);
-			if (!outfile){
-				throw std::ios_base::failure("Failed to open file");
-			} 
-			outfile << ASCII_TREE;
-			outfile.close();
-			std::cout << "Shrubbery has been created at " << filename << std::endl;
-		}
+		std::string filename = this->_target + "_shrubbery.txt";
+		std::ofstream outfile(filename);
+		if (!outfile){
+			throw std::ios_base::failure("Failed to open file");
+		} 
+		outfile << ASCII_TREE;
+		outfile.close();
+		std::cout << GREEN << "Shrubbery has been created at " << BOLD_TEXT << filename << RESET << std::endl;
 	}
 	catch (const std::ios_base::failure& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;
-		std::cout << executor.getName() << YELLOW << " couldn't execute " << RESET << this->getName() << std::endl;
-		return ;
+		std::cout << "Exception caught: " << e.what() << std::endl;;
 	}
-	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;
-		std::cout << executor.getName() << YELLOW <<" couldn't execute " << RESET << this->getName() << std::endl;
-		return ;
-	}
-	std::cout << executor.getName() << GREEN << " executed " << RESET << this->getName() << std::endl;
-}	
+}		

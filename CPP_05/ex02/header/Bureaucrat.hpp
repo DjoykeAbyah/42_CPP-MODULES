@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:04:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/03 16:38:44 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:27:22 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,14 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat &copy);
 		~Bureaucrat();
 
-		void setGrade(const int grade);
-		
-		std::string const & getName() const;
-		int getGrade() const;
+		void 					setGrade(const int grade);
+		std::string const & 	getName() const;
+		int 					getGrade() const;
 
-		void incrementGrade();
-		void decrementGrade();
-		void signForm(AForm &form);
-		void executeForm(AForm const &form);
+		void 					incrementGrade();
+		void 					decrementGrade();
+		void 					signForm(AForm &form);
+		void 					executeForm(AForm const &form);
 
 		class GradeTooHighException : public std::exception
 		{

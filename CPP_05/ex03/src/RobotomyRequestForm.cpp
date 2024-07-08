@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:19 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/08 14:02:19 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:30:05 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 	std::cout << "Robotomy destructor called " << std::endl;
 }
 
-// void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 void RobotomyRequestForm::action() const{
 	std::cout << ORANGE << "DRILLING NOISES....";
 	if (rand() % 2 == 0)

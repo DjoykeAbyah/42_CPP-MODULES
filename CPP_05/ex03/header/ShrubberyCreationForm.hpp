@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:57:23 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/08 13:23:28 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:28:07 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &copy);
 		virtual ~ShrubberyCreationForm();
 		
-		// void execute(Bureaucrat const & execture) const;
     void action() const override;
 };
 

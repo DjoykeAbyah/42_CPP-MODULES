@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/03 12:58:16 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/07 18:39:52 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/08 14:29:40 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,7 @@ PresidentialPardonForm::~PresidentialPardonForm(){
 	std::cout << RED << "Presidential destructor called " << RESET << std::endl;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
-	try {
-		if (!this->getSigned()){
-			throw NotSignedException();
-		}
-		
-		else if (executor.getGrade() > this->getExecuteGrade()){
-			throw AForm::GradeTooLowException();
-		}
-			
-		else {
-			std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
-		}
+void PresidentialPardonForm::action() const {
+		std::cout << BOLD_TEXT << MAGENTA << this->_target << RESET 
+		<< MAGENTA << " has been pardoned by Zaphod Beeblebrox" << RESET << std::endl;
 	}
-	catch (const std::exception& e){
-		std::cout << "Exception caught: " << e.what() << std::endl;
-		std::cout << executor.getName() << YELLOW << " couldn't execute " << RESET << this->getName() << std::endl;
-		return ;
-	}
-	std::cout << executor.getName() << GREEN << " executed " << RESET << this->getName() << std::endl;
-}
