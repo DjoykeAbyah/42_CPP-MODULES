@@ -6,13 +6,14 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/10 20:16:32 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/10 20:40:31 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <cctype>
 
 /**
  * @note 	A static method is a class member function that belongs to the class
