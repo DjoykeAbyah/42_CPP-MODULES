@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/15 14:28:29 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/15 18:23:05 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,11 @@ $(NAME): $(OBJ)
 $(OBJDIR)/%.o: ./src/%.cpp
 	@ mkdir -p $(OBJDIR)
 	$(CC) $(CPPFLAGS) -c -o $@ $^
+
+# Test target
+test: $(NAME)
+	@echo "${BLUE}Running tests...${DONE}"
+	@./test.sh
 
 #cleaning
 clean:

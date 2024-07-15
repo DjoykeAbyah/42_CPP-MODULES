@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/15 18:04:12 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/15 18:16:10 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
  * @note 	A static method is a class member function
  * 			belongs to the class not instance.
  * 			Called using the class name, don't create object of the class.
- * @todo	Do I need to use exceptions?
  */ 
 class ScalarConverter{
 	
