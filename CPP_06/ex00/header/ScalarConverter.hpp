@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/10 20:40:31 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/15 14:13:00 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 #include <cctype>
 
 /**
- * @note 	A static method is a class member function that belongs to the class
- * 			not an instance of the class.
- * 			Called using the class name, without the need to create an object of the class.
+ * @note 	A static method is a class member function
+ * 			belongs to the class not instance.
+ * 			Called using the class name, don't create object of the class.
+ * @todo	Do I need to use exceptions?
  */ 
 class ScalarConverter{
 	
@@ -33,4 +34,5 @@ class ScalarConverter{
 		static void convert(std::string &literal); //static method to convert and display scalar types
 };
 
-char convertToChar(std::string &literal);
+void convertChar(std::string &literal);
+bool checkChar(std::string &literal);
