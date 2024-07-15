@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/15 14:11:00 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/15 14:28:29 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
 
 #sources
-SRC 		= 	./src/main.cpp	
+SRC 		= 	./src/main.cpp \
+				./src/ScalarConverter.cpp
 				
 #object files
 OBJDIR 		= obj

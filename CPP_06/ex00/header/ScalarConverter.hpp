@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/15 14:13:00 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/15 14:30:20 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,5 @@ class ScalarConverter{
 
 void convertChar(std::string &literal);
 bool checkChar(std::string &literal);
+void convertInt(std::string &literal);
+bool checkInt(std::string &literal);
