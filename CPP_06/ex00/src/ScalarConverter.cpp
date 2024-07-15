@@ -6,14 +6,12 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:35 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/15 17:24:38 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/15 18:15:02 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iomanip>
-
-//cast to all other types beside the type thats input
 
 void ScalarConverter::convert(std::string &literal){
 	
@@ -21,16 +19,36 @@ void ScalarConverter::convert(std::string &literal){
 		std::cout << "input is empty" << std::endl;
 		return ;
 	}
-	if (checkChar(literal) == true){
+	else if (checkPseudo(literal) == true){
+		convertPseudo(literal);
+	}
+	else if (checkChar(literal) == true){
 		convertChar(literal);
 	}
-	if (checkInt(literal) == true){
+	else if (checkInt(literal) == true){
 		convertInt(literal);
 	}
-	//check if float + convert to float
-	//check if double + convert to double
+	else if (checkFloat(literal) == true){
+		convertFloat(literal);
+	}
+	else if (checkChar(literal) == true){
+		convertDouble(literal);
+	}
 	else
 		std::cout << "Invalid input" << std::endl;
+}
+
+bool checkPseudo(std::string &literal){
+	if (literal == "nan" 
+		|| literal == "+inf"
+		|| literal == "inf"
+		|| literal == "-inf"
+		|| literal == "+inff"
+		|| literal == "inff"
+		|| literal == "-inff")	
+		return true;
+	else
+		return false;
 }
 
 bool checkChar(std::string &literal){
@@ -59,7 +77,7 @@ bool checkInt(std::string &literal){
 bool checkFloat(std::string &literal){
 	try {
         size_t pos;
-        float value = std::stof(literal, &pos);
+       	std::stof(literal, &pos);
         // Ensure the entire string was processed and ends with 'f'
         if (literal[pos] != 'f' || pos + 1 != literal.size())
             return false;
@@ -74,7 +92,16 @@ bool checkFloat(std::string &literal){
 }
 
 bool checkDouble(std::string &literal){
-	
+	try {
+		std::stod(literal);
+	}
+	catch (const std::invalid_argument&){
+		return false;
+	}
+	catch (const std::out_of_range&){
+		return false;
+	}
+	return true;
 }
 
 void convertChar(std::string &literal){
@@ -126,4 +153,38 @@ void convertFloat(std::string &literal){
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(num) << std::endl;
+}
+
+void convertDouble(std::string &literal){
+	int num = std::stod(literal);
+	
+    if (num < 0 || num > 127) {
+        std::cout << "char: impossible" << std::endl;
+    } 
+	else if (!isprint(static_cast<char>(num))){
+		std::cout << "char: non displayable" << std::endl;
+    }
+	else
+        std::cout << "char: \'" << static_cast<char>(num) << "\'" << std::endl;
+	std::cout << "int: " << num << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(num) << std::endl;	
+}
+
+void convertPseudo(std::string &literal){
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (literal == "inf" || literal == "+inf" || literal == "+inff" || literal == "-inff"){
+		std::cout << "float: " << "inff" << std::endl;
+		std::cout << "double: " << "inf" << std::endl;
+	}
+	if (literal == "-inf" || literal == "-inff"){
+		std::cout << "float: " << "-inff" << std::endl;
+		std::cout << "double: " << "-inf" << std::endl;
+	}
+	else {
+		std::cout << "float: " << "nanf" << std::endl;
+		std::cout << "double: " << "nan" << std::endl;	
+	}
 }
