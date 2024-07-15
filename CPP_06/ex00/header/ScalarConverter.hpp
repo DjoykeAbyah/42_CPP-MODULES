@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/15 14:30:20 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/15 17:05:09 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ class ScalarConverter{
 		static void convert(std::string &literal); //static method to convert and display scalar types
 };
 
-void convertChar(std::string &literal);
 bool checkChar(std::string &literal);
-void convertInt(std::string &literal);
 bool checkInt(std::string &literal);
+bool checkFloat(std::string &literal);
+bool checkDouble(std::string &literal);
+
+void convertChar(std::string &literal);
+void convertInt(std::string &literal);
+void convertFloat(std::string &literal);
+void convertDouble(std::string &literal);
