@@ -10,87 +10,102 @@ Cyan='\033[0;36m'
 White='\033[0;37m'
 Color_Off='\033[0m'
 
-make d
-echo -e $Blue"\nTesting characters\n"$Color_Off
-./convert \'c\'
-./convert \'" "\'
-./convert \'*\'
-./convert \'$(printf '\017')\'
-echo -e $Blue"\nTesting integers\n"$Color_Off
-./convert 48
-./convert -48
-./convert --48
-./convert +48
-./convert ++48
-./convert 0
-./convert 300
-./convert 256
-./convert 2147483647
-./convert 2147483648
-./convert -2147483648
-./convert 123123213213
-echo -e $Blue"\nTesting floats\n"$Color_Off
-./convert 48.4f
-./convert -48.4f
-./convert +48.4f
-./convert 0.0f
-./convert 48.0f
-./convert 255.0f
-./convert 256.0f
-./convert 300.0f
-./convert -123.0f
-./convert 255.5f
-./convert --48.4f
-./convert ++48.4f
-./convert 2147483648.0f
-./convert -2147483648.0f
-./convert -2147483648.1f
-./convert 123123213213.0f
-./convert 12321321321321123123213221321321321312321321313.0f
-echo -e $Blue"\nTesting doubles\n"$Color_Off
-./convert 48.4
-./convert -48.4
-./convert +48.4
-./convert 48.0
-./convert 255.0
-./convert -123.0
-./convert 255.5
-./convert 0.0
-./convert --48.0
-./convert ++48.0
-./convert 123123213213.0
-./convert 2147483647.0
-./convert 2147483648.0
-./convert -2147483648.0
-./convert -2147483648.1
-./convert 123213213213211231232132132132132131231231232131.0
-echo -e $Blue"\nTesting pseudos\n"$Color_Off
-./convert inf
-./convert inff
-./convert -inf
-./convert -inff
-./convert +inf
-./convert +inff
-./convert nan
-./convert nanf
-echo -e $Blue"\nTesting bad stuff\n"$Color_Off
-./convert none
-./convert ""
-./convert "-"
-./convert "+"
-./convert "48.4f4"
-./convert "48.f"
-./convert "48."
-./convert "48..2"
-./convert "48..2f"
-./convert "."
-./convert ".1"
-./convert ".12f"
-./convert "48.5.12f"
-./convert "48.5.12"
-./convert "48f"
-./convert "48.2ff"
-./convert "+.123f"
-./convert "-.123f"
-./convert "+.123"
-./convert "-.1233"
+# Function to print a section header
+print_section() {
+    echo -e "${Blue}\n$1\n${Color_Off}"
+}
+
+# Function to run a test and print a newline
+run_test() {
+    ./convert "$1"
+    echo
+}
+
+print_section "Testing characters"
+run_test "'c'"
+run_test "' '"
+run_test "'*'"
+run_test "'$(printf '\017')'"
+
+print_section "Testing integers"
+run_test "48"
+run_test "-48"
+run_test "--48"
+run_test "+48"
+run_test "++48"
+run_test "0"
+run_test "300"
+run_test "256"
+run_test "2147483647"
+run_test "2147483648"
+run_test "-2147483648"
+run_test "123123213213"
+
+print_section "Testing floats"
+run_test "48.4f"
+run_test "-48.4f"
+run_test "+48.4f"
+run_test "0.0f"
+run_test "48.0f"
+run_test "255.0f"
+run_test "256.0f"
+run_test "300.0f"
+run_test "-123.0f"
+run_test "255.5f"
+run_test "--48.4f"
+run_test "++48.4f"
+run_test "2147483648.0f"
+run_test "-2147483648.0f"
+run_test "-2147483648.1f"
+run_test "123123213213.0f"
+run_test "12321321321321123123213221321321321312321321313.0f"
+
+print_section "Testing doubles"
+run_test "48.4"
+run_test "-48.4"
+run_test "+48.4"
+run_test "48.0"
+run_test "255.0"
+run_test "-123.0"
+run_test "255.5"
+run_test "0.0"
+run_test "--48.0"
+run_test "++48.0"
+run_test "123123213213.0"
+run_test "2147483647.0"
+run_test "2147483648.0"
+run_test "-2147483648.0"
+run_test "-2147483648.1"
+run_test "123213213213211231232132132132132131231231232131.0"
+
+print_section "Testing pseudos"
+run_test "inf"
+run_test "inff"
+run_test "-inf"
+run_test "-inff"
+run_test "+inf"
+run_test "+inff"
+run_test "nan"
+run_test "nanf"
+
+print_section "Testing bad stuff"
+run_test "none"
+run_test ""
+run_test "-"
+run_test "+"
+run_test "48.4f4"
+run_test "48.f"
+run_test "48."
+run_test "48..2"
+run_test "48..2f"
+run_test "."
+run_test ".1"
+run_test ".12f"
+run_test "48.5.12f"
+run_test "48.5.12"
+run_test "48f"
+run_test "48.2ff"
+run_test "+.123f"
+run_test "-.123f"
+run_test "+.123"
+run_test "-.1233"
