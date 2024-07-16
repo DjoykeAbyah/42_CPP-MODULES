@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/15 18:16:10 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/16 21:38:39 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class ScalarConverter{
 		~ScalarConverter() = delete;
 		
 	public:
-	
 		static void convert(std::string &literal); //static method to convert and display scalar types
 };
 

@@ -6,12 +6,12 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/08 18:44:05 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/16 21:22:19 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= t
+NAME 		= serializer
 
 #compiler + flags
 CC			= c++
