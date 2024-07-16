@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/16 21:22:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/16 22:23:47 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/16 22:24:13 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,4 @@ class Serializer {
 	public:
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
-}
+};
