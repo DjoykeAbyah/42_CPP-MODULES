@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/16 21:22:40 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/16 21:40:28 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/16 22:23:47 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 #include <iostream>
 
-class Serializer{
+struct Data {
+	//variables	
+};
+
+class Serializer {
 	
 	private:
 		Serializer() = delete;
