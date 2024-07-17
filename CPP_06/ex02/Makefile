@@ -6,19 +6,20 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/08 18:44:12 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/17 15:55:09 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= 
+NAME 		= realtype
 
 #compiler + flags
 CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
 
 #sources
-SRC 		= 	./src/main.cpp	
+SRC 		= 	./src/main.cpp	\
+				./src/Base.cpp	
 				
 #object files
 OBJDIR 		= obj

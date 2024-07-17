@@ -6,13 +6,11 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 13:39:57 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/17 15:53:29 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/17 16:39:05 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
-
-Base::~Base(){}
 
 Base* generate(void) {
 	
@@ -37,31 +35,36 @@ Base* generate(void) {
 
 void identify(Base *p) {
 	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
+		std::cout << "this is an A class" << std::endl;
 	else if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
+		std::cout << "this is an B class" << std::endl;
 	else if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
+		std::cout << "this is an C class" << std::endl;
 	else
 		std::cout << "Unknown type" << std::endl;
 }
 
+/**
+ * @note 	a way to explicitly discard the result of the cast. 
+ * 			This indicates to the compiler and other developers that the cast is intentional 
+ * 			and that the result is not needed, which prevents the unused variable warning
+ */
 void identify(Base &p) {
 	try {
-		A& a = dynamic_cast<A&>(p);
-		std::cout << "A" << std::endl;
+		(void) dynamic_cast<A&>(p);
+		std::cout << "this is an A class" << std::endl;
 		return ;
 	}
 	catch (const std::bad_cast&) {} //Catches the exception by reference, avoiding copying the exception object, which is more efficient
 	try {
-		B& b = dynamic_cast<B&>(p);
-		std::cout << "B" << std::endl;
+		(void) dynamic_cast<B&>(p);
+		std::cout << "this is an B class" << std::endl;
 		return ;
 	}
 	catch (const std::bad_cast&) {}
 	try {
-		C& c = dynamic_cast<C&>(p);
-		std::cout << "C" << std::endl;
+		(void) dynamic_cast<C&>(p);
+		std::cout << "this is an C class" << std::endl;
 		return ;
 	}
 	catch (const std::bad_cast&) {}
