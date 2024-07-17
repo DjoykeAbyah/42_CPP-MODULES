@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:35 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/15 18:15:02 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/17 11:18:38 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ void convertChar(std::string &literal){
 	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
-
 
 void convertInt(std::string &literal){
 	int num = std::stoi(literal);

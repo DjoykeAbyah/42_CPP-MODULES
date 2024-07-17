@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/10 19:39:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/16 21:38:39 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/16 22:23:10 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * 			belongs to the class not instance.
  * 			Called using the class name, don't create object of the class.
  */ 
-class ScalarConverter{
+class ScalarConverter {
 	
 	private:
 		ScalarConverter() = delete;
