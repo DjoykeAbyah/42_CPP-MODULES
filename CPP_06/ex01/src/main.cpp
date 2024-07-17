@@ -6,7 +6,12 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/08 18:45:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/08 18:45:53 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/17 11:49:26 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Serializer.cpp"
+
+int main() {
+	
+}
