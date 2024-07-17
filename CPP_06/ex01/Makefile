@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/17 11:17:49 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/17 12:00:23 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR
 
 #sources
 SRC 		= 	./src/main.cpp			\
-				./src/Serializer.cpp		
+				./src/Serializer.cpp
 				
 #object files
 OBJDIR 		= obj
