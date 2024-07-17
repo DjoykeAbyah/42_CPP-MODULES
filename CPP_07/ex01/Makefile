@@ -6,12 +6,12 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/17 16:46:44 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/17 16:49:37 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= realtype
+NAME 		= 
 
 #compiler + flags
 CC			= c++
