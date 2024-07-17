@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 12:18:19 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/17 15:00:29 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/17 15:44:33 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Base {
 	
 	public:
-		virtual ~Base();
+		virtual ~Base() = default; // Ensuring Base is polymorphic with a virtual destructor
 };
 
 class A : public Base {};

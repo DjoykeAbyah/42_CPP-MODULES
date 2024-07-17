@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 13:39:57 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/17 15:31:23 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/17 15:53:29 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,24 @@ void identify(Base *p) {
 }
 
 void identify(Base &p) {
-	
+	try {
+		A& a = dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+		return ;
+	}
+	catch (const std::bad_cast&) {} //Catches the exception by reference, avoiding copying the exception object, which is more efficient
+	try {
+		B& b = dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
+		return ;
+	}
+	catch (const std::bad_cast&) {}
+	try {
+		C& c = dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+		return ;
+	}
+	catch (const std::bad_cast&) {}
+	std::cout << "Unknown type" << std::endl;
 }
 
