@@ -6,9 +6,11 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/22 19:07:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/22 19:15:30 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/22 19:29:40 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 
