@@ -6,13 +6,14 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:32:18 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 21:35:30 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 21:43:29 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <stdexcept>
 
 /**
  * throw std::exception when element in [] operator is out of bounds
@@ -35,6 +36,7 @@ class Array {
 		~Array();
 
 		int size();
+		const T& operator[](unsigned int index);
 		
 };
 

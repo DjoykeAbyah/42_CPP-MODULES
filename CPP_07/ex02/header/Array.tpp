@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:34:17 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 21:36:45 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 21:47:02 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,19 @@ Array<T>& Array<T>::operator=(const Array &origin) {
 }
 
 template<typename T>
-int Array<T>::size() {
-	return _size;
-}
-
-template<typename T>
 Array<T>::~Array() {
 	delete[] _array;
 }
 
+template<typename T>
+const T& Array<T>::operator[](unsigned int index) {
+	if (index >= _size)
+		throw std::__throw_out_of_range("index out of bounds");
+	else
+		return _data[index];
+}
+
+template<typename T>
+int Array<T>::size() {
+	return _size;
+}
