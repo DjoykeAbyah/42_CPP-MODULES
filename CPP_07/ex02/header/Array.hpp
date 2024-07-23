@@ -6,14 +6,13 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:32:18 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 20:39:19 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 21:16:09 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include "Array.tpp"
 
 /**
  * throw std::exception when element in [] operator is out of bounds
@@ -25,6 +24,7 @@ class Array {
 	
 	private:
 		T* 				_data;
+		int				_size;
 
 	public:
 		
@@ -37,3 +37,5 @@ class Array {
 		int size();
 		
 };
+
+#include "Array.tpp"
