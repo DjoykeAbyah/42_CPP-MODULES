@@ -6,18 +6,23 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 16:48:18 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 18:41:20 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 19:27:30 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
 int main() {
-	int intArray[] = {1, 2, 3};
-	char charArray[] = {'a', 'b', 'c'};
-	const char *stringArray[] = {"one", "two", "three"};
 	
-	iter<int>(intArray, sizeof(intArray), showArray);
-	iter<char>(charArray, sizeof(charArray), showArray);
-	iter<char *>(stringArray, sizeof(stringArray), showArray);
+	int intArray[] = {40, 41, 42};
+	float floatArray[] = {20.1f, 21.1f, 22.1f};
+	char charArray[] = {'a', 'b', 'c'};
+	std::string stringArray[] = {"one", "two", "three"};
+	
+	int size = 3;
+	
+	iter(intArray, size, showArray<int>);
+	iter(floatArray, size, showArray<float>);
+	iter(charArray, size, showArray<char>);
+	iter(stringArray, size, showArray<std::string>);
 }
