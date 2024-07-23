@@ -6,11 +6,11 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 16:48:46 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 19:33:30 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 20:01:34 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#include "../header/Array.hpp"
 
 int main() {
 	return 0;
