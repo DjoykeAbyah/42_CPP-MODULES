@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:32:18 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 21:16:09 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 21:35:30 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ template<typename T>
 class Array {
 	
 	private:
-		T* 				_data;
+		T* 				_array;
 		int				_size;
 
 	public:
