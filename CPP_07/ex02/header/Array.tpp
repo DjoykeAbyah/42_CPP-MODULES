@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:34:17 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 21:47:02 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 22:02:33 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,30 @@ template<typename T>
 int Array<T>::size() {
 	return _size;
 }
+
+// template<typename T>
+// std::ostream& operator<<(std::ostream& os, const Array& array) {
+// 	os << "Array( ";
+//     for (unsigned int i = 0; i < array._size; ++i) {
+//         os << array._data[i];
+//         if (i < array._size - 1) {
+//             os << ", ";
+//         }
+//     }
+//     os << " )";
+//     return os;
+// }
+
+// // Template implementation of the << operator overload
+// template<typename T>
+// std::ostream& operator<<(std::ostream& os, const Array<T>& array) {
+//     os << "Array( ";
+//     for (unsigned int i = 0; i < array._size; ++i) {
+//         os << array._data[i];
+//         if (i < array._size - 1) {
+//             os << ", ";
+//         }
+//     }
+//     os << " )";
+//     return os;
+// }

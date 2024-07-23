@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:32:18 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 21:43:29 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/23 22:02:22 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 #include <iostream>
 #include <stdexcept>
 
-/**
- * throw std::exception when element in [] operator is out of bounds
- * try to compile int * a = new int() then display *a
- * 
- */
 template<typename T>
 class Array {
 	
@@ -38,6 +33,11 @@ class Array {
 		int size();
 		const T& operator[](unsigned int index);
 		
+
+		// Friend declaration for the << operator overload
+    	// template<typename U>
+    	// friend std::ostream& operator<<(std::ostream& os, const Array<U>& array);
+    	// std::ostream& operator<<(std::ostream& os, const Array& array);
 };
 
 #include "Array.tpp"
