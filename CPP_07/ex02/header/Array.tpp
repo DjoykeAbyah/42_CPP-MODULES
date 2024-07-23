@@ -1,17 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Array.tpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/07/17 16:48:46 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 19:33:30 by dreijans      ########   odam.nl         */
+/*   Created: 2024/07/23 19:34:17 by dreijans      #+#    #+#                 */
+/*   Updated: 2024/07/23 19:34:26 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
-
-int main() {
-	return 0;
-}
+//template file?
