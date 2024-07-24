@@ -6,20 +6,13 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 18:42:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/24 19:21:00 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 19:22:49 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "easyfind.hpp"
-
-
-class ElementNotFoundException : public std::exception {
-    virtual const char* what() const throw() {
-        return "Element not found.";
-    }
-};
 
 template<typename T>
 bool easyfind(const T& container, int num) {
