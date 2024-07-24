@@ -6,12 +6,12 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/24 16:08:05 by dreijans      ########   odam.nl          #
+#    Updated: 2024/07/24 19:49:08 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= 
+NAME 		= easyfind
 
 #compiler + flags
 CC			= c++

@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 18:42:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/24 19:22:49 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 20:02:56 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 
 template<typename T>
 bool easyfind(const T& container, int num) {
-	const T::const_iterator it = container.begin();
-	const T::const_iterator ite = container.end();
 
-	for (it != ite; it++) {
-		std::for_each(it, ite, find(num));
-	}
-	else
+	typename T::const_iterator it = std::find(container.begin(), container.end(), num);
+	if (it == container.end()) {
 		throw ElementNotFoundException();
+	}
+	return true;
 }
