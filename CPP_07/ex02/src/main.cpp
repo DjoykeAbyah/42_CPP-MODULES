@@ -6,15 +6,12 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 16:48:46 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/24 16:06:50 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 16:22:45 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Array.hpp"
 
-/**
- * @todo how to test if deep copy?
- */
 int main() {
 	
 	std::cout << BOLD_TEXT MAGENTA "\n\ntesting int arrays\n\n" RESET << std::endl;
@@ -44,6 +41,13 @@ int main() {
 	intArray1 = intArray3;// assignment overloader called
 	std::cout << "intArray3 = " << intArray3 << std::endl;
 	std::cout << "intArray1 = " << intArray1 << std::endl;
+
+	std::cout << MAGENTA "Trying to alter intArray1 without altering intArray3" RESET << std::endl;
+		for (int i = 0; i < intArray1.size(); i++)
+			intArray1[i] = i * 30;
+
+	std::cout << "intArray1 = " << intArray1 << std::endl;
+	std::cout << "intArray3 = " << intArray3 << std::endl;
 	
 	std::cout << MAGENTA "Trying to access out of bounds element intArray1:" RESET << std::endl;
 	try {
@@ -80,6 +84,13 @@ int main() {
 	charArray1 = charArray3;// assignment overloader called
 	std::cout << "charArray3 = " << charArray3 << std::endl;
 	std::cout << "charArray1 = " << charArray1 << std::endl;
+
+	std::cout << CYAN "Trying to alter charArray1 without altering charArray3" RESET << std::endl;
+		for (char i = 0; i < charArray1.size(); i++)
+			charArray1[i] = i + 3;
+
+	std::cout << "charArray1 = " << charArray1 << std::endl;
+	std::cout << "charArray3 = " << charArray3 << std::endl;
 	
 	std::cout << CYAN "Trying to access out of bounds element charArray1:" RESET << std::endl;
 	try {
@@ -120,6 +131,14 @@ int main() {
 	stringArray1 = stringArray3;// assignment overloader called
 	std::cout << "stringArray3 = " << stringArray3 << std::endl;
 	std::cout << "stringArray1 = " << stringArray1 << std::endl;
+
+	std::cout << ORANGE "Trying to alter stringArray1 without altering stringArray3" RESET << std::endl;
+	
+	for (int i = 0; i < stringArray1.size(); i++)
+		stringArray1[i][0] = static_cast<char>(std::toupper(stringArray1[i][0]));
+
+	std::cout << "stringArray1 = " << stringArray1 << std::endl;
+	std::cout << "stringArray3 = " << stringArray3 << std::endl;
 	
 	std::cout << ORANGE "Trying to access out of bounds element stringArray1:" RESET << std::endl;
 	try {
