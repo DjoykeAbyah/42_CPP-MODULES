@@ -6,12 +6,15 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 16:48:46 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/24 16:02:07 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 16:06:50 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Array.hpp"
 
+/**
+ * @todo how to test if deep copy?
+ */
 int main() {
 	
 	std::cout << BOLD_TEXT MAGENTA "\n\ntesting int arrays\n\n" RESET << std::endl;
