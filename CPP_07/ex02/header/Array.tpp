@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:34:17 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 22:02:33 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 14:47:53 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ template<typename T>
 Array<T>::Array(const Array &origin) : _size(origin._size) {
 	_array = new T[_size];
 	for (int i = 0; i < _size; i++)
-		_array[i] = origin_array[i];
+		_array[i] = origin._array[i];
 }
 
 template<typename T>
@@ -35,7 +35,7 @@ Array<T>& Array<T>::operator=(const Array &origin) {
 		_size = origin._size;
 		_array = new T[_size];
 		for (int i = 0; i < _size; i++)
-			_array[i] = origin_array[i];	
+			_array[i] = origin._array[i];	
 	}
 	return *this;
 }
@@ -46,11 +46,11 @@ Array<T>::~Array() {
 }
 
 template<typename T>
-const T& Array<T>::operator[](unsigned int index) {
+const T& Array<T>::operator[](int index) {
 	if (index >= _size)
-		throw std::__throw_out_of_range("index out of bounds");
+		throw std::out_of_range("index out of bounds");
 	else
-		return _data[index];
+		return _array[index];
 }
 
 template<typename T>
@@ -58,29 +58,16 @@ int Array<T>::size() {
 	return _size;
 }
 
-// template<typename T>
-// std::ostream& operator<<(std::ostream& os, const Array& array) {
-// 	os << "Array( ";
-//     for (unsigned int i = 0; i < array._size; ++i) {
-//         os << array._data[i];
-//         if (i < array._size - 1) {
-//             os << ", ";
-//         }
-//     }
-//     os << " )";
-//     return os;
-// }
-
-// // Template implementation of the << operator overload
-// template<typename T>
-// std::ostream& operator<<(std::ostream& os, const Array<T>& array) {
-//     os << "Array( ";
-//     for (unsigned int i = 0; i < array._size; ++i) {
-//         os << array._data[i];
-//         if (i < array._size - 1) {
-//             os << ", ";
-//         }
-//     }
-//     os << " )";
-//     return os;
-// }
+// Template implementation of the << operator overload
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const Array<T>& array) {
+    os << "Array( ";
+    for (int i = 0; i < array._size; ++i) {
+        os << array._array[i];
+        if (i < array._size - 1) {
+            os << ", ";
+        }
+    }
+    os << " )";
+    return os;
+}

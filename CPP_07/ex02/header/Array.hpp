@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:32:18 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/23 22:02:22 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 14:47:48 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ class Array {
 		~Array();
 
 		int size();
-		const T& operator[](unsigned int index);
+		const T& operator[](int index);
 		
-
-		// Friend declaration for the << operator overload
-    	// template<typename U>
-    	// friend std::ostream& operator<<(std::ostream& os, const Array<U>& array);
-    	// std::ostream& operator<<(std::ostream& os, const Array& array);
+	// Friend declaration for the << operator overload
+    template<typename U>
+    friend std::ostream& operator<<(std::ostream& os, const Array<U>& array);
+	
 };
 
 #include "Array.tpp"
