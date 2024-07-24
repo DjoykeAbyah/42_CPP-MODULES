@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 19:32:18 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/24 14:47:48 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 15:33:01 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Array {
 		~Array();
 
 		int size();
-		const T& operator[](int index);
+		T& operator[](int index);
 		
 	// Friend declaration for the << operator overload
     template<typename U>
