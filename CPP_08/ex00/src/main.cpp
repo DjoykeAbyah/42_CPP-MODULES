@@ -6,10 +6,13 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 16:08:35 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/24 16:08:43 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 19:28:01 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "easyfind.hpp"
+
 int main() {
+
 	return 0;
 }

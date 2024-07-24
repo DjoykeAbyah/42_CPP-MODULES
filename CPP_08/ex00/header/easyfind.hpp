@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 18:41:51 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/24 19:22:52 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/24 19:27:39 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,5 @@ class ElementNotFoundException : public std::exception {
         return "Element not found.";
     }
 };
+
+#include "easyfind.tpp"
