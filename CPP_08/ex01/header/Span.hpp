@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   easyfind.hpp                                       :+:    :+:            */
+/*   Span.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/07/24 18:41:51 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/31 15:49:46 by dreijans      ########   odam.nl         */
+/*   Created: 2024/07/31 15:54:44 by dreijans      #+#    #+#                 */
+/*   Updated: 2024/07/31 15:55:13 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include <algorithm>
-#include <list>
-#include <vector>
-#include <deque>
 
-/**
- * @todo		why use reference
- */
-template<typename T>
-bool easyfind(const T& container, int num);
-
-class ElementNotFoundException : public std::exception {
-    virtual const char* what() const throw() {
-        return "Element not found.";
-    }
+class Span {
+		
 };
-
-#include "easyfind.tpp"
