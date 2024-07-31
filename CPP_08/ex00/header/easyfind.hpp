@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 18:41:51 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/31 15:49:46 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/31 16:37:51 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
+#include <map>
 #include <vector>
 #include <deque>
 
 /**
- * @todo		why use reference
+ * @note    Passing a container by reference avoids making a copy of the entire container. 
+ *          Copying a container can be expensive in terms of both time and memory, 
+ *          especially if the container holds a large number of elements.
  */
 template<typename T>
 bool easyfind(const T& container, int num);
+
+template<typename Key, typename Value>
+bool easyfind(const std::map<Key, Value>& container, int num);
 
 class ElementNotFoundException : public std::exception {
     virtual const char* what() const throw() {

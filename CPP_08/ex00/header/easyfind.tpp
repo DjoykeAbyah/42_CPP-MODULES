@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 18:42:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/31 14:03:24 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/07/31 18:28:52 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,14 @@ bool easyfind(const T& container, int num) {
 		throw ElementNotFoundException();
 	}
 	return true;
+}
+
+template<typename Key, typename Value>
+bool easyfind(const std::map<Key, Value>& container, int num) {
+
+	for (auto& pair : container) { //range based for loop
+		if (pair.second == num)
+			return true;
+	}
+	throw ElementNotFoundException();
 }
