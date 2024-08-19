@@ -1,33 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Span.hpp                                           :+:    :+:            */
+/*   Span.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/07/31 15:54:44 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/19 15:01:05 by dreijans      ########   odam.nl         */
+/*   Created: 2024/08/19 14:44:36 by dreijans      #+#    #+#                 */
+/*   Updated: 2024/08/19 14:59:27 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "../header/Span.hpp"
 
-#include <iostream>
-#include <list>
+Span::Span() : _N(0) {}
 
-class Span {
-	
-	private:
-		unsigned int _N;
-	
-	public:
-		Span();
-		Span(unsigned int num);
-		Span(const Span &copy);
-		Span& operator=(const Span &copy);
-		~Span();
-		
-		void	addNumber(int num);
-		int		shortestSpan();
-		int		longestSpan();
-};
+Span::Span(unsigned int num) : _N(num) {}
