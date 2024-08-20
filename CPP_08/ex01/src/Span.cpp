@@ -6,25 +6,21 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/19 14:44:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 17:07:52 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 18:07:42 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Span.hpp"
 
-Span::Span() : _N(0) {}
-
-/**
- * resize would only be useful 
- * if you know how many numbers will be added in total
-**/
 Span::Span(unsigned int num) : _N(num) {}
 
-Span::Span(const Span &copy) : _N(copy._N) {}
+Span::Span(const Span &copy) : _N(copy._N), _vector(copy._vector) {}
 
 Span& Span::operator=(const Span &copy) {
-	if (this != &copy)
+	if (this != &copy) {
 		_N = copy._N;
+		_vector = copy._vector;	
+	}
 	return *this;
 }
 
@@ -40,24 +36,24 @@ void Span::addNumber(int num) {
 int Span::shortestSpan() {
 	if (_vector.size() < 2)
 		throw VectorTooSmall();
-	else {
-		std::sort(_vector.begin(), _vector.end());
-		int span = _vector[1] - _vector[0];
-		return span;
-	}
+
+	std::sort(_vector.begin(), _vector.end());
+	int min_span = std::numeric_limits<int>::max();
+	
+		for (size_t i = 0; i < _vector.size() - 1; i++) {
+			int span = _vector[i + 1] - _vector[i];
+			if (span < min_span)
+				min_span = span;
+		}
+		return min_span;
 }
 
 int Span::longestSpan() {
 	if (_vector.size() < 2)
 		throw VectorTooSmall();
-	else {
-		std::sort(_vector.begin(), _vector.end());
-		int max_num = *std::min_element(_vector.begin(), _vector.end());
-		for (int num : _vector) {
-			if (max_num - num > max_num)
-				max_num = max_num - num; 
-			else
-				return max_num;
-		}
-	}
+	
+	int min_num = *std::min_element(_vector.begin(), _vector.end());
+	int max_num = *std::max_element(_vector.begin(), _vector.end());
+
+	return max_num - min_num;
 }

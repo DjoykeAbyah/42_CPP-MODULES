@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 15:54:44 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 16:46:09 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 18:03:27 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <vector>
 #include <stdexcept>
 #include <algorithm>
+#include <limits>
 
 class Span {
 	
@@ -24,7 +25,6 @@ class Span {
 		std::vector<int> _vector;
 	
 	public:
-		Span() = delete;
 		Span(unsigned int num);
 		Span(const Span &copy);
 		Span& operator=(const Span &copy);
