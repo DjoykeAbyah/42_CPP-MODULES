@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/19 14:44:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 17:06:43 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 17:07:52 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int Span::shortestSpan() {
 		throw VectorTooSmall();
 	else {
 		std::sort(_vector.begin(), _vector.end());
-		int min_num = *std::min_element(_vector.begin(), _vector.end());
 		int span = _vector[1] - _vector[0];
 		return span;
 	}
