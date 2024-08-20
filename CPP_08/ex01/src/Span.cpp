@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/19 14:44:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 16:28:59 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 16:32:40 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void Span::addNumber(int num) {
 	if (_vector.size() < _N)
 		_vector.push_back(num);
 	else
-		//throw exception
+		throw VectorLimitException();
 }
 
 int Span::shortestSpan() {

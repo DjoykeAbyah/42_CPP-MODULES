@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 15:54:44 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 16:29:39 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 16:32:02 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
 class Span {
 	
@@ -32,6 +33,10 @@ class Span {
 		int		shortestSpan();
 		int		longestSpan();
 
-	class	
+	class VectorLimitException : public std::exception {
+		virtual const char* what() const throw() {
+			return "limit vector reached";
+		}
+	}
 	
 };
