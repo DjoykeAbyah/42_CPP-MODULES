@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/19 14:44:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 16:32:40 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 17:06:43 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,27 @@ void Span::addNumber(int num) {
 }
 
 int Span::shortestSpan() {
-	//check between numbers what shortest span is
-	//return the shortest
+	if (_vector.size() < 2)
+		throw VectorTooSmall();
+	else {
+		std::sort(_vector.begin(), _vector.end());
+		int min_num = *std::min_element(_vector.begin(), _vector.end());
+		int span = _vector[1] - _vector[0];
+		return span;
+	}
 }
 
 int Span::longestSpan() {
-	//check between numbers for longest span
-	//return longest span
+	if (_vector.size() < 2)
+		throw VectorTooSmall();
+	else {
+		std::sort(_vector.begin(), _vector.end());
+		int max_num = *std::min_element(_vector.begin(), _vector.end());
+		for (int num : _vector) {
+			if (max_num - num > max_num)
+				max_num = max_num - num; 
+			else
+				return max_num;
+		}
+	}
 }

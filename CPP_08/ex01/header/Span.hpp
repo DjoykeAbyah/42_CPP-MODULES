@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 15:54:44 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 16:32:02 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 16:46:09 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <algorithm>
 
 class Span {
 	
@@ -37,6 +38,11 @@ class Span {
 		virtual const char* what() const throw() {
 			return "limit vector reached";
 		}
-	}
-	
+	};
+
+	class VectorTooSmall : public std::exception {
+		virtual const char* what() const throw() {
+			return "not enough elements in vector";
+		}
+	};
 };
