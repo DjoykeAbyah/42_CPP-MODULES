@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/19 14:44:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 18:07:42 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/20 18:27:18 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ Span& Span::operator=(const Span &copy) {
 }
 
 Span::~Span() {}
+
+std::vector<int>& Span::getVector() {
+	return _vector;
+}
 
 void Span::addNumber(int num) {
 	if (_vector.size() < _N)
