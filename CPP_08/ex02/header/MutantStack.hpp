@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/21 12:55:02 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/21 12:56:25 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/21 13:16:32 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <iostream>
 #include <stack>
 
-class MutantStack {
+class MutantStack : stack::int {
 	private:
-		
+		stack::int
 	public:
 			
 };

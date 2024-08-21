@@ -55,6 +55,7 @@
 		"cinttypes": "cpp",
 		"*.tpp": "cpp",
 		"list": "cpp",
-		"map": "cpp"
+		"map": "cpp",
+		"stack": "cpp"
 	}
 }
