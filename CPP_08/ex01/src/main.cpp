@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 16:09:12 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/20 18:42:42 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/21 12:09:31 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 # define RESET "\033[0m"
 # define BLUE "\033[34m"
 
-/**
- * @todo 
- * 			- for 10.000 longest span check min and max 
- * 			to see if it works.
- * 			- add more tests
- */
 int main() {
 	std::cout << BLUE << "test with 5 numbers\n" << RESET << std::endl;
 	Span sp = Span(5);
