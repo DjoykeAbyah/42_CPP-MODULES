@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/21 12:55:02 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/21 13:16:32 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/25 19:20:20 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 #include <iostream>
 #include <stack>
+#include <deque>
 
-class MutantStack : stack::int {
-	private:
-		stack::int
+//allows to specify data type and underlying container type
+template<typename T, typename Container = std::deque<T>>
+class MutantStack : public std::stack<T> {
+
 	public:
+		MutantStack();
+		MutantStack(const MutantStack &copy);
+		MutantStack<T> &operator=(const MutantStack &copy);
+		~MutantStack();
 			
 };
+
+//include implementation file
+#include "MutantStack.tpp"
