@@ -6,7 +6,7 @@
 /*   By: djoyke <djoyke@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/25 19:18:08 by djoyke        #+#    #+#                 */
-/*   Updated: 2024/08/25 20:25:21 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/08/25 20:27:54 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ effectively copying the internal stack data from copy to the current object.
 */
 template<typename T, typename Container>
 MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStack &copy) {
-	if (this != &copy)
+	if (this != &copy)//comparing addresses
 		std::stack<T, Container>::operator=(copy);
+	//This calls the assignment operator of the base class 
+	//(std::stack<T, Container>), which does the actual copying 
+	//of the stack contents from copy to the current object
 	return *this;
 }
 
