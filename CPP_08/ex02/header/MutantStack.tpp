@@ -6,7 +6,7 @@
 /*   By: djoyke <djoyke@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/25 19:18:08 by djoyke        #+#    #+#                 */
-/*   Updated: 2024/08/26 15:18:44 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/26 16:58:18 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,34 @@ typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() 
 template<typename T, typename Container>
 typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
 	return this->c.end();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::rbegin() {
+	return this->c.rbegin();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::rend() {
+	return this->c.rend();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::cbegin() const {
+	return this->c.cbegin();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::cend() const {
+	return this->c.cend();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::const_reverse_iterator MutantStack<T, Container>::crbegin() const {
+	return this->c.crbegin();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::const_reverse_iterator MutantStack<T, Container>::crend() const {
+	return this->c.crend();
 }

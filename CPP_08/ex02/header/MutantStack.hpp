@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/21 12:55:02 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/26 15:18:17 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/26 16:58:45 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,22 @@ class MutantStack : public std::stack<T> {
 		
 		iterator begin();
 		iterator end();
-			
+
+		using reverse_iterator = typename std::deque<T>::reverse_iterator;
+		
+		reverse_iterator rbegin();
+		reverse_iterator rend();
+
+		using const_iterator = typename std::deque<T>::const_iterator;
+		
+		const_iterator cbegin() const;
+		const_iterator cend() const;
+
+		using const_reverse_iterator = typename std::deque<T>::const_reverse_iterator;
+		
+		const_reverse_iterator crbegin() const;
+		const_reverse_iterator crend() const;	
 };
 
-//include implementation file
+//include implementation
 #include "MutantStack.tpp"
