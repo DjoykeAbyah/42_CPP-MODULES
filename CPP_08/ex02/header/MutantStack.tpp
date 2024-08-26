@@ -6,7 +6,7 @@
 /*   By: djoyke <djoyke@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/25 19:18:08 by djoyke        #+#    #+#                 */
-/*   Updated: 2024/08/25 20:27:54 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/08/26 15:18:44 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,14 @@
 template<typename T, typename Container>
 MutantStack<T, Container>::MutantStack() : std::stack<T>() {}
 
-// template<typename T, typename Container>
-// MutantStack<T, Container>::MutantStack(const std::stack<T> &value) : std::stack<T>(value) {}
-
 template<typename T, typename Container>
 MutantStack<T, Container>::MutantStack(const MutantStack &copy) : std::stack<T, Container>(copy) {}
 
 /*
-Base Class Assignment: std::stack<T, Container>::operator=(copy); 
-calls the assignment operator of the base class 
-std::stack<T, Container>, 
-effectively copying the internal stack data from copy to the current object.
+	Base Class Assignment: std::stack<T, Container>::operator=(copy); 
+	calls the assignment operator of the base class 
+	std::stack<T, Container>, 
+	effectively copying the internal stack data from copy to the current object.
 */
 template<typename T, typename Container>
 MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStack &copy) {
@@ -39,3 +36,13 @@ MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStac
 
 template<typename T, typename Container>
 MutantStack<T, Container>::~MutantStack() {}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() {
+	return this->c.begin();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
+	return this->c.end();
+}

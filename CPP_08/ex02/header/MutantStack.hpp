@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/21 12:55:02 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/25 20:18:19 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/08/26 15:18:17 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@ class MutantStack : public std::stack<T> {
 
 	public:
 		MutantStack();
-		//conversion constructor, converts std::stack to a MutantStack
-		// MutantStack(const std::stack<T> &value);//need this?
     	MutantStack(const MutantStack& copy);
-		MutantStack<>& operator=(const MutantStack& copy);
+		MutantStack & operator=(const MutantStack& copy);
 		~MutantStack();
+
+		using iterator = typename std::deque<T>::iterator;
+		
+		iterator begin();
+		iterator end();
 			
 };
 

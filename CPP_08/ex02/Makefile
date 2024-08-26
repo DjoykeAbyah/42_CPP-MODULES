@@ -6,12 +6,12 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/07/24 16:08:12 by dreijans      ########   odam.nl          #
+#    Updated: 2024/08/26 15:17:56 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= 
+NAME 		= mutant
 
 #compiler + flags
 CC			= c++

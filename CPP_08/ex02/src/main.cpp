@@ -6,12 +6,17 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 16:09:45 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/21 12:57:54 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/26 15:17:38 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
+/**
+ * @todo 	make tests
+ * 			- list test
+ * 			- reverse iterator 
+ */
 int main() {
 	
 	MutantStack<int> mstack;
