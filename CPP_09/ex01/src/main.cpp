@@ -6,7 +6,10 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/27 16:18:50 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/27 16:20:47 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+int main() {
+	return 0;
+}
