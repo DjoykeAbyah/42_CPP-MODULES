@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/28 15:01:20 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/28 15:10:38 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 //container used here cannot be used in other exercise
 //don't need to handle brackets or decimals
 
-//stack?
 class RPN {
 	
 };

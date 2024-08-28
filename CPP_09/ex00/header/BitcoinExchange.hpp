@@ -6,12 +6,12 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/28 15:01:54 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/28 15:39:55 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <map>
+#include <unordered_map>
 
 //program name must be btc?
 //take a file as argument
@@ -21,13 +21,17 @@
 //if date used in input does not exist use closest lower date in database
 //you cannot use the container you've used in this exercise for another
 
-//map?
+//undordered multipmap
 class BitcoinExchange {
 	
 	private:
 		
 
 	public:
+		BitcoinExchange();
+		BitcoinExchange(BitcoinExchange &copy);
+		BitcoinExchange operator=(BitcoinExchange &copy);
+		~BitcoinExchange();
+
 		
-	
 };
