@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 16:08:35 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/07/31 18:29:54 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/27 18:28:02 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main() {
 
-	std::vector<int> 	myVector(10, 5); //10 entries with 5 as value
-	std::list<int> 		myList = {20, 10, 5, 6, 2};
+	std::vector<int> 	myVector(10, 0); //10 entries with 5 as value
+	std::list<int> 		myList = {0,0,0,0,0};
     std::map<std::string, int> myMap = {
         {"thirty", 30},
         {"ten", 10},

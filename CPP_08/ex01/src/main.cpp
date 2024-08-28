@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/24 16:09:12 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/21 12:09:31 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/27 18:37:24 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main() {
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
+	sp.addNumber(0);
 	
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
