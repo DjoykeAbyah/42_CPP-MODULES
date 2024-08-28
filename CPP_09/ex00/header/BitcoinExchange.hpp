@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/28 15:39:55 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/28 17:30:33 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,30 @@
 //you cannot use the container you've used in this exercise for another
 
 //undordered multipmap
+//https://cplusplus.com/reference/unordered_map/unordered_multimap/
+
+/**
+ * making the map a private attribute aligns with OOP principles like encapsulation, 
+ * abstraction, and data hiding, which help create a more robust, 
+ * maintainable, and user-friendly class. 
+ * However, if the specific requirements of your program favor returning the map directly, 
+ * that approach can also be justified, especially for simpler use cases.
+ */
 class BitcoinExchange {
 	
 	private:
-		
+		std::unordered_multimap<std::string, float> data; //stores date-value pairs
 
 	public:
 		BitcoinExchange();
-		BitcoinExchange(BitcoinExchange &copy);
-		BitcoinExchange operator=(BitcoinExchange &copy);
+		BitcoinExchange(const BitcoinExchange &copy);
+		BitcoinExchange operator=(const BitcoinExchange &copy);
 		~BitcoinExchange();
 
-		
+		//getter?
+		//setter?
+
+		//read csv and put into map
+		//read input and put into map
+	
 };
