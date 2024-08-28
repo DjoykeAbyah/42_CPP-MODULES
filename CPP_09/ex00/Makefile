@@ -6,16 +6,17 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/08/27 16:14:45 by dreijans      ########   odam.nl          #
+#    Updated: 2024/08/28 14:29:54 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= 
+NAME 		= btc
 
 #compiler + flags
 CC			= c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
+# CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I
 
 #sources
 SRC 		= 	./src/main.cpp	
