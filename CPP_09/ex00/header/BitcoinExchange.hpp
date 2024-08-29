@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/28 18:08:14 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/29 17:29:10 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@
 class BitcoinExchange {
 	
 	private:
-		std::unordered_multimap<std::string, float> data; //stores date-value pairs
+		std::unordered_multimap<std::string, float> csvdata; //stores date-value pairs
+		std::unordered_multimap<std::string, float> txtdata; //stores date-value pairs
 
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &copy);
-		BitcoinExchange operator=(const BitcoinExchange &copy);
+		BitcoinExchange& operator=(const BitcoinExchange &copy);
 		~BitcoinExchange();
 
 		//getter?
