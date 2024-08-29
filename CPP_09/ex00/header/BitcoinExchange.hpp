@@ -6,12 +6,14 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/29 17:29:10 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/29 17:44:37 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <unordered_map>
+#include <fstream>
+#include <exception>
 
 //program name must be btc?
 //take a file as argument
@@ -50,4 +52,10 @@ class BitcoinExchange {
 		void	readCsv(std::string &filename);
 		//read input and put into map
 		void	readTxt(std::string &filename);
+		
+	class OpenFileException : public std::exception {
+		virtual const char* what() const throw() {
+			return "Failed to open file";
+		}
+	};
 };
