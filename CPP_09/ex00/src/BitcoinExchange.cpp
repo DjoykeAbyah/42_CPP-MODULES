@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:17:04 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/29 17:44:50 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/29 17:46:30 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void BitcoinExchange::readCsv(std::string &filename) {
 	std::fstream file(filename);
 	if (!file.is_open())
 		throw OpenFileException();
+	
+	//read from file to multimap
+
+	file.close();
 }
 
 void BitcoinExchange::readTxt(std::string &filename) {
