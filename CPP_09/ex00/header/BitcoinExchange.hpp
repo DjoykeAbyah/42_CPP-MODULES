@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/30 18:24:01 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/30 18:25:29 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class BitcoinExchange {
 		//setter?
 		
 		//read csv and put into map
-		void	ParseCsv(std::string &filename);
+		void	parseCsv(std::string &filename);
 		//read input and put into map
 		void	readTxt(std::string &filename);
 		

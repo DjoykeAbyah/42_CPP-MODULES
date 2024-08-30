@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:17:04 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/30 18:24:21 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/08/30 18:25:23 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &copy) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
-void BitcoinExchange::ParseCsv(std::string &filename) {
+void BitcoinExchange::parseCsv(std::string &filename) {
 	std::fstream file(filename);
 	if (!file.is_open())
 		throw OpenFileException();
