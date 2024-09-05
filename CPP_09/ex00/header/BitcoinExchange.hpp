@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/30 18:25:29 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/09/05 13:58:45 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 //https://cplusplus.com/reference/unordered_map/unordered_multimap/
 
 /**
+ * @todo reconsider if unordered multipmap is the way to go to prevent hasing to the same key?
  * making the map a private attribute aligns with OOP principles like encapsulation, 
  * abstraction, and data hiding, which help create a more robust, 
  * maintainable, and user-friendly class. 
