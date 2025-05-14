@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:17:04 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/30 18:25:23 by dreijans      ########   odam.nl         */
+/*   Updated: 2025/05/14 19:53:37 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ void BitcoinExchange::parseCsv(std::string &filename) {
 		throw OpenFileException();
 	
 	//read from file to multimap
+	std::string line;
+	std::getline(file, line);
+
+	while (std::getline(file, line)) {
+		std::stringstream stringStream(line);			//turn the line into a stream
+		std::string date;
+		std::string valueString;
+		float value;
+
+		if (std::getline(stringStream, date, ',') && std::getline(stringStream, valueString)){
+			std::stringstream(valueString) >> value; 	//converts string into float, reads from stream into value using >>
+			csvdata[date] = value;
+		}
+	}
 
 	file.close();
 }

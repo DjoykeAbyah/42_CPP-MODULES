@@ -6,14 +6,16 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/09/05 13:58:45 by dreijans      ########   odam.nl         */
+/*   Updated: 2025/05/14 18:02:43 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include <fstream>
 #include <exception>
+#include <sstream>
 
 //program name must be btc?
 //take a file as argument
@@ -37,7 +39,7 @@
 class BitcoinExchange {
 	
 	private:
-		std::unordered_multimap<std::string, float> csvdata; //stores date-value pairs
+		std::map<std::string, float> csvdata; //stores date-value pairs
 
 	public:
 		BitcoinExchange();
