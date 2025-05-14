@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:17:04 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/14 20:16:17 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/14 22:04:08 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,24 @@ void BitcoinExchange::readTxt(std::string &filename) {
 		
 		if (!std::getline(stringStream, date, '|') || !std::getline(stringStream, valueString)) {
 			std::cerr << "Bad input : " << line << std::endl; 
-			continue; // should I continue?
+			continue; // TODO should I continue?
 		}
 
 		//Trim whitespace
+		date.erase(0, date.find_first_not_of(" \t"));
+		date.erase(date.find_last_not_of(" \t") + 1); // TODO is +1 neccesary?
+		valueString.erase(0, valueString.find_first_not_of("\t"));
+		valueString.erase(valueString.find_last_not_of(" \t") + 1);
+		
 		//convert value to float
+		float value;
+		try {
+			value = std::stof(valueString); //convert string to float
+		}
+		catch (...) { //catch all exceptions
+			std::cerr << "bad value : " << valueString << std::endl;
+			continue ;
+		}
 		//check range
 		//lookup exchange rate in csv data
 	}
