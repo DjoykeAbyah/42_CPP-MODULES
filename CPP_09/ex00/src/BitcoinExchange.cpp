@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:17:04 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/14 22:04:08 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/14 22:13:42 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 //don't need to add data?
 BitcoinExchange::BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) : csvdata(copy.csvdata) {}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) : _csvdata(copy._csvdata) {}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &copy) {
 	if (this != &copy) {
-		csvdata = copy.csvdata;
+		_csvdata = copy._csvdata;
 	}
 	return *this;
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+const std::map<std::string, float> &BitcoinExchange::getCsvData() const {
+	return _csvdata;
+} 
 
 void BitcoinExchange::parseCsv(std::string &filename) {
 	std::fstream file(filename);
@@ -43,7 +47,7 @@ void BitcoinExchange::parseCsv(std::string &filename) {
 
 		if (std::getline(stringStream, date, ',') && std::getline(stringStream, valueString)){
 			std::stringstream(valueString) >> value; 	//converts string into float, reads from stream into value using >>
-			csvdata[date] = value; //lookup and insertion if not exists
+			_csvdata[date] = value; //lookup and insertion if not exists
 		}
 	}
 	file.close();

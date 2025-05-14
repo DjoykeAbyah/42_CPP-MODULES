@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/14 18:02:43 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/14 22:13:26 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 class BitcoinExchange {
 	
 	private:
-		std::map<std::string, float> csvdata; //stores date-value pairs
+		std::map<std::string, float> _csvdata; //stores date-value pairs
 
 	public:
 		BitcoinExchange();
@@ -47,7 +47,9 @@ class BitcoinExchange {
 		BitcoinExchange& operator=(const BitcoinExchange &copy);
 		~BitcoinExchange();
 
-		//getter?
+		//getter
+		const std::map<std::string, float>& getCsvData() const;
+		
 		//setter?
 		
 		//read csv and put into map
