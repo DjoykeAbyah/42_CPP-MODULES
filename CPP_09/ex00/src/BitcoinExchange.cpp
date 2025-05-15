@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:17:04 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/14 22:13:42 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/15 21:50:50 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,34 @@ void BitcoinExchange::readTxt(std::string &filename) {
 		}
 		catch (...) { //catch all exceptions
 			std::cerr << "bad value : " << valueString << std::endl;
-			continue ;
+			continue;
 		}
+		
 		//check range
+		if (value < 0) {
+			std::cerr << "not a positive number" << std::endl;
+			continue;
+		}
+		else if (value > 1000) {
+			std::cerr << "number too large" << std::endl;
+			continue;
+		}
+
 		//lookup exchange rate in csv data
+		std::map<std::string, float>::iterator it = _csvdata.lower_bound(date);
+		if (it == _csvdata.end() || it->first != date) {
+			if (it != _csvdata.begin())
+				--it;
+			else {
+				std::cerr << "no exchange rate available for " << date << std::endl;
+				continue;
+			}
+		}
+
+		float exchangeRate = it->second;
+		float result = value * exchangeRate;
+
+		std::cout << date << " : " << value << " = " << result << std::endl;
 	}
 	file.close();
 }

@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/08/28 14:29:54 by dreijans      ########   odam.nl          #
+#    Updated: 2025/05/15 17:37:53 by djoyke        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,12 @@ NAME 		= btc
 
 #compiler + flags
 CC			= c++
-# CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
+# CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I
 
 #sources
-SRC 		= 	./src/main.cpp	
+SRC 		= 	./src/main.cpp \
+				./src/BitcoinExchange.cpp
 				
 #object files
 OBJDIR 		= obj
