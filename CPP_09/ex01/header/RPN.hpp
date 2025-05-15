@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/28 15:10:38 by dreijans      ########   odam.nl         */
+/*   Updated: 2025/05/15 22:53:55 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,11 @@
 //don't need to handle brackets or decimals
 
 class RPN {
+	private:
+		//one stack is enough
+		std::stack 
+
+	public:
+	
 	
 };
