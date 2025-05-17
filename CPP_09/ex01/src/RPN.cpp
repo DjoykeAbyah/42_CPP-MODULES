@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:53 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/17 21:19:24 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/17 21:29:32 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,13 @@ void RPN::parseInput(std::string &input) {
 	
 	while (stream >> _token) {
 		std::cout << "token is " << _token << std::endl;
+		if (_token.length() == 1 && isdigit(_token[0])) {
+			_stack.push(_token[0] - '0');
+		}
+		else if (isOperator(_token)) {
+			if (_stack.size() < 2) {
+				throw std::runtime_error("Error: not enough operands");
+			}
+		}
 	}
 }

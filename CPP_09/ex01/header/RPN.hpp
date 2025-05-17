@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/17 21:08:33 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/17 21:29:23 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class RPN {
 
 		class InvalidCharacterException : public std::exception {
 			virtual const char* what() const throw() {
-				return "invalid charachter";
+				return "invalid character";
 			}
 		};
 };
