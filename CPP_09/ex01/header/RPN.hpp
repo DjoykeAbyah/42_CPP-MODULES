@@ -6,12 +6,15 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/15 22:53:55 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/17 20:44:13 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
 #include <stack>
+#include <stdexcept>
 
 //program nust take inverted Polish mathematical expression as argument
 //numbers passed will be less than 10
@@ -24,9 +27,19 @@
 class RPN {
 	private:
 		//one stack is enough
-		std::stack 
+		std::stack<int> _stack;
 
 	public:
-	
-	
+		RPN();
+		RPN(const RPN &copy);
+		RPN& operator=(const RPN &copy);
+		~RPN();
+		
+		bool isOperator(std::string &string);
+
+		class InvalidCharacterException : public std::exception {
+			virtual const char* what() const throw() {
+				return "invalid charachter";
+			}
+		};
 };
