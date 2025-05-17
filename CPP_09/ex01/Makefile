@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/08/28 14:31:47 by dreijans      ########   odam.nl          #
+#    Updated: 2025/05/17 20:46:03 by djoyke        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address -I $(HEADERDIR)
 
 #sources
-SRC 		= 	./src/main.cpp	
+SRC 		= 	./src/main.cpp	\
+				./src/RPN.cpp
 				
 #object files
 OBJDIR 		= obj

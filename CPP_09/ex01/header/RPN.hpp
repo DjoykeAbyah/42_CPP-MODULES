@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/17 20:44:13 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/17 21:08:33 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <stack>
 #include <stdexcept>
+#include <sstream>
 
 //program nust take inverted Polish mathematical expression as argument
 //numbers passed will be less than 10
@@ -28,6 +29,7 @@ class RPN {
 	private:
 		//one stack is enough
 		std::stack<int> _stack;
+		std::string _token;
 
 	public:
 		RPN();
@@ -36,6 +38,8 @@ class RPN {
 		~RPN();
 		
 		bool isOperator(std::string &string);
+
+		void parseInput(std::string &input);
 
 		class InvalidCharacterException : public std::exception {
 			virtual const char* what() const throw() {
