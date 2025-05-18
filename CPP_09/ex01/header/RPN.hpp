@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/18 13:05:55 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/18 13:16:30 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class RPN {
 		RPN& operator=(const RPN &copy);
 		~RPN();
 		
-		bool 	isOperator(std::string &string);
+		bool 	isOperator(const std::string &string);
 		void 	parseInput(std::string &input);
 		int 	calculate(int left, int right, char operand);
 

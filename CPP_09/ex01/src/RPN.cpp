@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:53 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/18 13:06:17 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/18 13:16:34 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ RPN& RPN::operator=(const RPN& copy) {
 
 RPN::~RPN() {}
 
-bool RPN::isOperator(std::string &character) {
+bool RPN::isOperator(const std::string &character) {
 	return (character == "+" || character == "-" || character == "/" || character == "*");
 }
 
@@ -49,12 +49,10 @@ int RPN::calculate(int left, int right, char operand) {
 }
 
 void RPN::parseInput(std::string &input) {
-	// extract each individual word
 	std::istringstream 	stream(input);
 	std::string 		token;
 	
 	while (stream >> token) {
-		std::cout << "token is " << token << std::endl;
 		if (token.length() == 1 && isdigit(token[0])) {
 			_stack.push(token[0] - '0');
 		}
@@ -70,10 +68,14 @@ void RPN::parseInput(std::string &input) {
 
 			int result = calculate(left, right, token[0]);
 			_stack.push(result);
-			std::cout << "stack is " << result << std::endl;
-			
-			
 		}
-		
+		else {
+			throw InvalidCharacterException();
+		}
 	}
+
+	if (_stack.size() != 1) {
+		throw std::runtime_error("RPN input invalid");
+	}
+	std::cout << "result = " << _stack.top() << std::endl;
 }
