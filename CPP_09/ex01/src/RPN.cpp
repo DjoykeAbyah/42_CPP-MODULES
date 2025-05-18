@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:53 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/18 13:04:12 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/18 13:06:17 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,15 @@ int RPN::calculate(int left, int right, char operand) {
 
 void RPN::parseInput(std::string &input) {
 	// extract each individual word
-	std::istringstream stream(input);
+	std::istringstream 	stream(input);
+	std::string 		token;
 	
-	while (stream >> _token) {
-		std::cout << "token is " << _token << std::endl;
-		if (_token.length() == 1 && isdigit(_token[0])) {
-			_stack.push(_token[0] - '0');
+	while (stream >> token) {
+		std::cout << "token is " << token << std::endl;
+		if (token.length() == 1 && isdigit(token[0])) {
+			_stack.push(token[0] - '0');
 		}
-		else if (isOperator(_token)) {
+		else if (isOperator(token)) {
 			if (_stack.size() < 2) {
 				throw std::runtime_error("operand digit imbalance");
 			}
@@ -67,7 +68,7 @@ void RPN::parseInput(std::string &input) {
 			int left = _stack.top();
 			_stack.pop();
 
-			int result = calculate(left, right, _token[0]);
+			int result = calculate(left, right, token[0]);
 			_stack.push(result);
 			std::cout << "stack is " << result << std::endl;
 			

@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/18 13:02:25 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/18 13:05:55 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 class RPN {
 	private:
 		std::stack<int> 	_stack;
-		std::string 		_token;
 
 	public:
 		RPN();
@@ -36,9 +35,9 @@ class RPN {
 		RPN& operator=(const RPN &copy);
 		~RPN();
 		
-		bool isOperator(std::string &string);
-		void parseInput(std::string &input);
-		int calculate(int left, int right, char operand);
+		bool 	isOperator(std::string &string);
+		void 	parseInput(std::string &input);
+		int 	calculate(int left, int right, char operand);
 
 		class InvalidCharacterException : public std::exception {
 			virtual const char* what() const throw() {
