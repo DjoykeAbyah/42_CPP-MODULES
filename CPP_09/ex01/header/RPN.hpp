@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:26 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/17 21:29:23 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/18 13:02:25 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@
 
 class RPN {
 	private:
-		//one stack is enough
-		std::stack<int> _stack;
-		std::string _token;
+		std::stack<int> 	_stack;
+		std::string 		_token;
 
 	public:
 		RPN();
@@ -38,8 +37,8 @@ class RPN {
 		~RPN();
 		
 		bool isOperator(std::string &string);
-
 		void parseInput(std::string &input);
+		int calculate(int left, int right, char operand);
 
 		class InvalidCharacterException : public std::exception {
 			virtual const char* what() const throw() {

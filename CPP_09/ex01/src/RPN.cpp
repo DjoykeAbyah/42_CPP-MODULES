@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:53 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/17 21:29:32 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/18 13:04:12 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@ bool RPN::isOperator(std::string &character) {
 	return (character == "+" || character == "-" || character == "/" || character == "*");
 }
 
+int RPN::calculate(int left, int right, char operand) {
+	if (operand == '+') {
+		return (left + right);
+	}
+	else if (operand == '-') {
+		return (left - right); 
+	}
+	else if (operand == '/') {
+		if (right == 0) {
+			throw std::runtime_error("cannot divide by 0");
+		}
+		return (left / right);
+	}
+	else if (operand == '*') {
+		return (left * right);
+	}
+	throw std::runtime_error("unknown operator");
+}
+
 void RPN::parseInput(std::string &input) {
 	// extract each individual word
 	std::istringstream stream(input);
@@ -40,8 +59,20 @@ void RPN::parseInput(std::string &input) {
 		}
 		else if (isOperator(_token)) {
 			if (_stack.size() < 2) {
-				throw std::runtime_error("Error: not enough operands");
+				throw std::runtime_error("operand digit imbalance");
 			}
+			
+			int right = _stack.top();
+			_stack.pop();
+			int left = _stack.top();
+			_stack.pop();
+
+			int result = calculate(left, right, _token[0]);
+			_stack.push(result);
+			std::cout << "stack is " << result << std::endl;
+			
+			
 		}
+		
 	}
 }
