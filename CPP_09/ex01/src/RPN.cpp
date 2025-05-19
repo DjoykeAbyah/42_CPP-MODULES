@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:18:53 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/18 13:16:34 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/19 18:13:42 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void RPN::parseInput(std::string &input) {
 	if (_stack.size() != 1) {
 		throw std::runtime_error("RPN input invalid");
 	}
-	std::cout << "result = " << _stack.top() << std::endl;
+	std::cout << _stack.top() << std::endl;
 }
