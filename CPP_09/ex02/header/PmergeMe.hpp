@@ -6,11 +6,19 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/08/28 14:38:46 by dreijans      ########   odam.nl         */
+/*   Updated: 2025/05/19 19:51:34 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
+#include <vector>
+#include <deque>
+#include <string>
+#include <stdexcept>
+#include <sstream>
+#include <chrono>
 
 //able to use positive int sequence as argument
 //must merge-insert sort algorithm to sort positive int sequence
@@ -21,6 +29,16 @@
 //implement algoritm for each container and avoid using generic function
 //show difference between the two containers used in output
 //show time used to perform operations
+
+//class doesnt store state so could make it static.
 class PmergeMe {
-	
+	private:
+		std::vector<int> 	_vectorData;
+		std::deque<int> 	_dequeData;
+		
+		void sortVector();
+		void sortDeque();
+
+		
+		
 };
