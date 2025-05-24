@@ -6,12 +6,20 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:49 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/19 18:23:08 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/24 14:41:21 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-int main() {
+int main(int argc, char **argv) {
+	try {
+		PmergeMe pmergeme(argc, argv);
+		pmergeme.sort();
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
 	return 0;
 }
