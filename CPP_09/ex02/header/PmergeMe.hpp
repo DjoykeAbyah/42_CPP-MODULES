@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/24 14:41:54 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/28 18:16:10 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,21 @@ class PmergeMe {
 		std::vector<int> 	_vectorData;
 		std::deque<int> 	_dequeData;
 
-		//ford-johnson per container
-		std::vector<int> _fordJonsonVector(const std::vector<int>& input);
-		std::deque<int> _fordJonsonDeque(const std::deque<int>& input);
+		void _parseInput(int argc, char **argv);
 		
-		//sorting logic template
-		template <typename T>
-		T _fordJohnsonSort(const T& input);
+		//ford-johnson per container
+		void _fordJonsoSortVector();
+		void _fordJonsonSortDeque();
 
+		//binary insert per container
+		void _binaryInsertVector(int value, size_t maxIndex);
+		void _binaryInsertDeque(int value, size_t maxIndex);
+		
 		//dynamic programming style Jacobsthal sequence
 		std::vector<size_t> _getJacobsthalSequence(size_t n);
-
-		template <typename T>
-		void _binaryInsert(T& container, typename T::value_type value, size_t maxIndex);
 	
-		void _parseInput(int argc, char **argv);
-		void _displayBefore() const;
-		void _displayAfter(const std::vector<int>& result) const;	
+		void _displayContainerVector() const;
+		void _displayContainerDeque() const;
 
 	public:
 		PmergeMe(int argc, char **argv);

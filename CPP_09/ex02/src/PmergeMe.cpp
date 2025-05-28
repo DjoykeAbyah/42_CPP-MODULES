@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/28 16:24:35 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/28 18:06:08 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,15 @@ void PmergeMe::sort() {
 	
 	std::cout << "Total time of process of size " << _vectorData.size() << " with a vector: " << vectorTime << "us\n ";
 	std::cout << "Total time of process of size " << _dequeData.size() << " with a deque: " << dequeTime << "us\n";
+}
+
+void PmergeMe::_displayContainer() const {
+	std::cout << "Vector before: ";
+	for (size_t i = 0; i < _vectorData.size(); i++) {
+		std::cout << _vectorData[i];
+		if (i + 1 != _vectorData.size()) {
+			std::cout << "";
+		}	
+	}
+	std::cout << std::endl;
 }
