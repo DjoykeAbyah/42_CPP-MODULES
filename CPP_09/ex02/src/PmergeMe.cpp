@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/24 14:39:49 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/28 16:24:35 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,27 @@ void PmergeMe::_parseInput(int argc, char** argv) {
 		_vectorData.push_back(num);
 		_dequeData.push_back(num);
 	}
+}
+
+void PmergeMe::sort() {
+	// _displayBefore();
+	
+	//capture timestamp
+	auto startVectorTime = std::chrono::high_resolution_clock::now();
+	//ford johnson algorithm here for vector
+	auto endVectorTime = std::chrono::high_resolution_clock::now();
+	
+	//capture timestamp
+	auto startDequeTime = std::chrono::high_resolution_clock::now();
+	//ford johnson algorithm here for deque
+	auto endDequeTime = std::chrono::high_resolution_clock::now();
+
+	// _displayAfter();
+
+	//duration in microseconds
+	auto vectorTime = std::chrono::duration<double, std::micro>(endVectorTime - startVectorTime).count();
+	auto dequeTime = std::chrono::duration<double, std::micro>(endDequeTime - startDequeTime).count();
+	
+	std::cout << "Total time of process of size " << _vectorData.size() << " with a vector: " << vectorTime << "us\n ";
+	std::cout << "Total time of process of size " << _dequeData.size() << " with a deque: " << dequeTime << "us\n";
 }
