@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/28 18:06:08 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/29 20:49:50 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,21 @@ void PmergeMe::_parseInput(int argc, char** argv) {
 }
 
 void PmergeMe::sort() {
-	// _displayBefore();
+	_displayContainer("Before", _vectorData); //both are the same at this point
 	
 	//capture timestamp
 	auto startVectorTime = std::chrono::high_resolution_clock::now();
 	//ford johnson algorithm here for vector
+	_fordJonsoSortVector();
 	auto endVectorTime = std::chrono::high_resolution_clock::now();
 	
 	//capture timestamp
 	auto startDequeTime = std::chrono::high_resolution_clock::now();
-	//ford johnson algorithm here for deque
+	_fordJonsonSortDeque();
 	auto endDequeTime = std::chrono::high_resolution_clock::now();
 
-	// _displayAfter();
+	_displayContainer("After Vector", _vectorData);
+	_displayContainer("After Deque", _dequeData);
 
 	//duration in microseconds
 	auto vectorTime = std::chrono::duration<double, std::micro>(endVectorTime - startVectorTime).count();
@@ -71,13 +73,3 @@ void PmergeMe::sort() {
 	std::cout << "Total time of process of size " << _dequeData.size() << " with a deque: " << dequeTime << "us\n";
 }
 
-void PmergeMe::_displayContainer() const {
-	std::cout << "Vector before: ";
-	for (size_t i = 0; i < _vectorData.size(); i++) {
-		std::cout << _vectorData[i];
-		if (i + 1 != _vectorData.size()) {
-			std::cout << "";
-		}	
-	}
-	std::cout << std::endl;
-}

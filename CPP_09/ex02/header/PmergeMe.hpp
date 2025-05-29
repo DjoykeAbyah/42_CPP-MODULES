@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/28 18:16:10 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/29 20:48:09 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,44 @@ class PmergeMe {
 	private:
 		std::vector<int> 	_vectorData;
 		std::deque<int> 	_dequeData;
-
+		struct TreeNode
+		{
+			int 		value;
+			TreeNode* 	left;
+			TreeNode* 	right;
+			TreeNode(int num) : value(num), left(nullptr), right(nullptr) {}
+		};
+		
 		void _parseInput(int argc, char **argv);
 		
 		//ford-johnson per container
 		void _fordJonsoSortVector();
 		void _fordJonsonSortDeque();
 
-		//binary insert per container
-		void _binaryInsertVector(int value, size_t maxIndex);
-		void _binaryInsertDeque(int value, size_t maxIndex);
+		//binary insert vector
+		TreeNode* _buildInsetionTreeVector(const std::vector<int>& min, int left, int right);
+		void _traverseAndInsertVector(TreeNode* node, std::vector<int>& sorted, std::vector<std::pair<int, int>>& pairs);
+		void _insertMinVector(std::vector<int>& sorted, int minValue, int correspondingMax);
+
+		//binary insert deque
+		TreeNode* _buildInsetionTreeDeque(const std::vector<int>& min, int left, int right);
+		void _traverseAndInsertDeque(TreeNode* node, std::deque<int>& sorted, std::vector<std::pair<int, int>>& pairs);
+		void _insertMinDeque(std::deque<int>& sorted, int minValue, int correspondingMax);
 		
 		//dynamic programming style Jacobsthal sequence
 		std::vector<size_t> _getJacobsthalSequence(size_t n);
 	
-		void _displayContainerVector() const;
-		void _displayContainerDeque() const;
+		// Display container content (generic)
+		template <typename Container>
+		void PmergeMe::_displayContainer(const std::string& label, const Container& container) const {
+			std::cout << label << ": ";
+			for (size_t i = 0; i < container.size(); i++) {
+				std::cout << container[i];
+				if (i + 1 < container.size())
+					std::cout << " ";  // Separate elements with a space
+			}
+			std::cout << std::endl;  // Newline at the end
+		}
 
 	public:
 		PmergeMe(int argc, char **argv);
