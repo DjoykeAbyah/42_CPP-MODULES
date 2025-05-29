@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/29 20:49:50 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/29 22:40:50 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,46 @@ void PmergeMe::sort() {
 	std::cout << "Total time of process of size " << _dequeData.size() << " with a deque: " << dequeTime << "us\n";
 }
 
+void PmergeMe::_fordJonsoSortVector() {
+	if (_vectorData.size() <= 1)
+		return;
+	
+	std::vector<std::pair<int, int>> pairs; //max, min pair
+	std::vector<int> minValues;
+
+	//pair elements
+	for (size_t i = 0; i + 1 < _vectorData.size(); i += 2) {
+		int left = _vectorData[i];
+		int right = _vectorData[i + 1];
+		if (left < right) {
+			std::swap(left, right); //left is now bigger than right
+		}
+		pairs.push_back({left, right});
+		minValues.push_back(right);
+	}
+	if (_vectorData.size() % 2 == 1) {
+		pairs.push_back({_vectorData.back(), -1}); //last one has no pair because size uneven
+	}
+	
+	//sort max elements
+	std::vector<int> maxValues;
+	for (auto& pair : pairs) {
+		maxValues.push_back(pair.first);
+		std::sort(maxValues.begin(), maxValues.end());
+		_vectorData = maxValues;
+	}
+
+	//build insertion tree and insert minValues
+	TreeNode* root = _buildInsetionTreeVector(minValues, 0, minValues.size() - 1);
+	_traverseAndInsertVector(root, _vectorData, pairs);
+	//need to free memoiry?
+}
+
+PmergeMe::TreeNode* PmergeMe::_buildInsetionTreeVector(const std::vector<int>& min, int left, int right) {
+	if (left > right) {
+		return nullptr
+	}
+	size_t middle = (left + right) / 2;
+
+	
+}
