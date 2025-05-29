@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/29 22:30:22 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/29 23:02:59 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ class PmergeMe {
 		void _parseInput(int argc, char **argv);
 		
 		//ford-johnson per container
-		void _fordJonsoSortVector();
-		void _fordJonsonSortDeque();
+		void _fordJohnsonSortVector();
+		void _fordJohnsonSortDeque();
 
 		//binary insert vector
-		TreeNode* _buildInsetionTreeVector(const std::vector<int>& min, int left, int right);
+		TreeNode* _buildInsertionTreeVector(const std::vector<int>& min, int left, int right);
 		void _traverseAndInsertVector(TreeNode* node, std::vector<int>& sorted, std::vector<std::pair<int, int>>& pairs);
 		void _insertMinVector(std::vector<int>& sorted, int minValue, int correspondingMax);
 

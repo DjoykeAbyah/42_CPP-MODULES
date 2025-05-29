@@ -6,15 +6,11 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/29 22:53:23 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/29 23:17:52 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
-//pairing elements
-//recursively sorting max values
-//insert min values into sorted list using jacobsthal sequence
 
 PmergeMe::PmergeMe(int argc, char **argv) {
 	_parseInput(argc, argv);
@@ -54,12 +50,12 @@ void PmergeMe::sort() {
 	//capture timestamp
 	auto startVectorTime = std::chrono::high_resolution_clock::now();
 	//ford johnson algorithm here for vector
-	_fordJonsoSortVector();
+	_fordJohnsonSortVector();
 	auto endVectorTime = std::chrono::high_resolution_clock::now();
 	
 	//capture timestamp
 	auto startDequeTime = std::chrono::high_resolution_clock::now();
-	_fordJonsonSortDeque();
+	_fordJohnsonSortDeque();
 	auto endDequeTime = std::chrono::high_resolution_clock::now();
 
 	_displayContainer("After Vector", _vectorData);
@@ -73,7 +69,7 @@ void PmergeMe::sort() {
 	std::cout << "Total time of process of size " << _dequeData.size() << " with a deque: " << dequeTime << "us\n";
 }
 
-void PmergeMe::_fordJonsoSortVector() {
+void PmergeMe::_fordJohnsonSortVector() {
 	if (_vectorData.size() <= 1)
 		return;
 	
@@ -103,12 +99,12 @@ void PmergeMe::_fordJonsoSortVector() {
 	}
 
 	//build insertion tree and insert minValues
-	TreeNode* root = _buildInsetionTreeVector(minValues, 0, minValues.size() - 1);
+	TreeNode* root = _buildInsertionTreeVector(minValues, 0, minValues.size() - 1);
 	_traverseAndInsertVector(root, _vectorData, pairs);
-	//need to free memoiry?
+	//need to free memory?
 }
 
-PmergeMe::TreeNode* PmergeMe::_buildInsetionTreeVector(const std::vector<int>& min, int left, int right) {
+PmergeMe::TreeNode* PmergeMe::_buildInsertionTreeVector(const std::vector<int>& min, int left, int right) {
 	//base case
 	if (left > right) {
 		return nullptr;
@@ -117,7 +113,30 @@ PmergeMe::TreeNode* PmergeMe::_buildInsetionTreeVector(const std::vector<int>& m
 	size_t middle = (left + right) / 2;
 	TreeNode* node = new TreeNode(min[middle]);
 
-	node->left = _buildInsetionTreeVector(min, left, middle - 1); //start from left side from vector to new middle
-	node->right = _buildInsetionTreeVector(min, middle + 1, right); //start is middle + 1 to right side of vector
+	node->left = _buildInsertionTreeVector(min, left, middle - 1); //start from left side from vector to new middle
+	node->right = _buildInsertionTreeVector(min, middle + 1, right); //start is middle + 1 to right side of vector
 	return node;
+}
+
+void PmergeMe::_traverseAndInsertVector(TreeNode* node, std::vector<int>& sortedVector, std::vector<std::pair<int, int>>& pairs) {
+	//base case
+	if (!node) {
+		return;
+	}
+	
+	//find max for min value
+	for (auto& pair : pairs) {
+		if (pair.second == node->value) {
+			_insertMinVector(sortedVector, node->value, pair.first); //insert min before paired max
+			break;
+		}
+	}
+	//recursive process left and right
+	_traverseAndInsertVector(node->left, sortedVector, pairs);
+	_traverseAndInsertVector(node->right, sortedVector, pairs);
+}
+
+void PmergeMe::_insertMinVector(std::vector<int>& sortedVector, int minValue, int matchingMaxValue) {
+	auto position = std::lower_bound(sortedVector.begin(), sortedVector.end(), matchingMaxValue);
+	sortedVector.insert(position, minValue);
 }
