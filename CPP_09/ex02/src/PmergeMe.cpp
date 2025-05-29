@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/29 22:40:50 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/29 22:53:23 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,15 @@ void PmergeMe::_fordJonsoSortVector() {
 }
 
 PmergeMe::TreeNode* PmergeMe::_buildInsetionTreeVector(const std::vector<int>& min, int left, int right) {
+	//base case
 	if (left > right) {
-		return nullptr
+		return nullptr;
 	}
-	size_t middle = (left + right) / 2;
-
 	
+	size_t middle = (left + right) / 2;
+	TreeNode* node = new TreeNode(min[middle]);
+
+	node->left = _buildInsetionTreeVector(min, left, middle - 1); //start from left side from vector to new middle
+	node->right = _buildInsetionTreeVector(min, middle + 1, right); //start is middle + 1 to right side of vector
+	return node;
 }
