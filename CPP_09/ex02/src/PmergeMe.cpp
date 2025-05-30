@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/30 13:50:42 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/30 13:53:11 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,6 @@ void PmergeMe::_fordJohnsonSortVector() {
 	std::sort(maxValues.begin(), maxValues.end());
 	_vectorData = maxValues;
 
-	// //jacobsthal insertion
-	// std::vector<size_t> jacobsthal = _getJacobsthalSequence(minValues.size());
-	// for (size_t index : jacobsthal) {
-	// 	if (index < minValues.size()) {
-	// 		//check if it's true or false?
-	// 		//or start from jacobsthal[1]
-	// 		//index = iterator 
-	// 		// insert at iterator until index == false or >=1
-	// 		int minValue = minValues[index - 1];
-	// 		int matchingMaxValue = pairs[index - 1].first;
-	// 		_insertMinVector(_vectorData, minValue, matchingMaxValue);
-	// 	}
-	// }
-
 	//jacobsthal insertion
 	std::vector<size_t> jacobsthal = _getJacobsthalSequence(minValues.size());
 	std::cout << "minvalues size = " << minValues.size() << std::endl;
@@ -127,7 +113,7 @@ void PmergeMe::_fordJohnsonSortVector() {
 			}
 			index--;
 			//insert in max vector
-			_insertMinVector(maxValues, minValues[index], pairs[index].first);
+			_insertMinVector(_vectorData, minValues[index], pairs[index].first);
 			// std::cout << "index = " << index << std::endl;
 		}
 		previous = current;
