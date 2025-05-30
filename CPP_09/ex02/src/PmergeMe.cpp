@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/30 15:05:56 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/30 15:13:58 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,41 @@ std::vector<size_t> PmergeMe::_getJacobsthalSequence(size_t num) {
 }
 
 void PmergeMe::_fordJohnsonSortDeque() {
-	
+    if (_dequeData.size() <= 1) return;
+
+    std::vector<std::pair<int, int>> pairs;
+    std::vector<int> minValues;
+    std::vector<int> maxValues;
+
+    // Pair elements
+    for (size_t i = 0; i + 1 < _dequeData.size(); i += 2) {
+        int left = _dequeData[i];
+        int right = _dequeData[i + 1];
+        if (left < right) std::swap(left, right);
+        pairs.push_back({left, right});
+        minValues.push_back(right);
+        maxValues.push_back(left);
+    }
+    if (_dequeData.size() % 2 == 1) {
+        pairs.push_back({_dequeData.back(), -1});
+        minValues.push_back(_dequeData.back());
+    }
+
+    std::sort(maxValues.begin(), maxValues.end());
+    _dequeData = std::deque<int>(maxValues.begin(), maxValues.end());
+
+    std::vector<size_t> jacobsthal = _getJacobsthalSequence(minValues.size());
+    size_t previous = jacobsthal[0];
+
+    for (size_t index : jacobsthal) {
+        size_t current = index;
+        while (index > previous) {
+            if (index > minValues.size()) index = minValues.size();
+            index--;
+            _insertMinDeque(_dequeData, minValues[index], pairs[index].first);
+        }
+        previous = current;
+    }
 }
 
 void PmergeMe::_fordJohnsonSortVector() {
@@ -128,7 +162,8 @@ void PmergeMe::_insertMinVector(std::vector<int>& sortedVector, int minValue, in
 }
 
 void PmergeMe::_insertMinDeque(std::deque<int>& sorted, int minValue, int correspondingMax) {
-	
+    auto pos = std::lower_bound(sorted.begin(), sorted.end(), correspondingMax);
+    sorted.insert(pos, minValue);
 }
 
 void PmergeMe::sort() {
