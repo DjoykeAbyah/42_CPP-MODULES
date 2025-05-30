@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/30 13:06:23 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/05/30 15:04:36 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,41 +23,17 @@
 #include <cctype>
 #include <iterator>
 
-//able to use positive int sequence as argument
-//must merge-insert sort algorithm to sort positive int sequence
-//need to use Ford-Johnson algortihm
-//if error occurs message should be displayed on stdout
-//use 2 different containers in code to validate
-//program must be able to handle 3000 different ints at least
-//implement algoritm for each container and avoid using generic function
-//show difference between the two containers used in output
-//show time used to perform operations
-
-//each min element must be inserted only before its paired max
-
-//class doesnt store state so could make it static.
+//handle duplicates
 class PmergeMe {
 	private:
 		std::vector<int> 	_vectorData;
 		std::deque<int> 	_dequeData;
-
-		struct TreeNode
-		{
-			int 		value;
-			TreeNode* 	left;
-			TreeNode* 	right;
-			TreeNode(int num) : value(num), left(nullptr), right(nullptr) {}
-		};
 
 		void 				_parseInput(int argc, char **argv);
 		
 		//ford-johnson per container
 		void 				_fordJohnsonSortVector();
 		void 				_fordJohnsonSortDeque();
-
-		// BST functions for min elements
-    	TreeNode* 			_buildMinBST(const std::vector<int>& mins, int left, int right);
-    	void 				_collectMinNodesInJacobOrder(TreeNode* node, std::vector<int>& jacobMins, std::vector<size_t>& jacobSeq, size_t& idx);
 
 		//binary insert vector and deque
 		void 				_insertMinVector(std::vector<int>& sorted, int minValue, int correspondingMax);
