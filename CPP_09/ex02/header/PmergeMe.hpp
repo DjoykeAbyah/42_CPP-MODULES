@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/05/30 15:04:36 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/06/01 17:41:19 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 #include <algorithm>
 #include <cctype>
 #include <iterator>
+#include <unordered_set>
 
-//handle duplicates
 class PmergeMe {
 	private:
 		std::vector<int> 	_vectorData;
@@ -35,23 +35,23 @@ class PmergeMe {
 		void 				_fordJohnsonSortVector();
 		void 				_fordJohnsonSortDeque();
 
-		//binary insert vector and deque
-		void 				_insertMinVector(std::vector<int>& sorted, int minValue, int correspondingMax);
-		void 				_insertMinDeque(std::deque<int>& sorted, int minValue, int correspondingMax);
+		//insert for vector and deque
+		void 				_insertVector(std::vector<int>& sorted, int value);
+		void 				_insertDeque(std::deque<int>& sorted, int value);
 		
 		//dynamic programming style Jacobsthal sequence
 		std::vector<size_t> _getJacobsthalSequence(size_t n);
 	
-		// Display container content (generic)
+		// Display container content
 		template <typename Container>
 		void _displayContainer(const std::string& label, const Container& container) const {
 			std::cout << label << ": ";
 			for (size_t i = 0; i < container.size(); i++) {
 				std::cout << container[i];
 				if (i + 1 < container.size())
-					std::cout << " ";  // Separate elements with a space
+					std::cout << " "; 
 			}
-			std::cout << std::endl;  // Newline at the end
+			std::cout << std::endl;
 		}
 
 	public:
