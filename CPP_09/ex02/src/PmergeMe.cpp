@@ -6,11 +6,13 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:52 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/06/01 17:42:22 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/06/06 11:01:53 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(int argc, char **argv) {
 	_parseInput(argc, argv);
@@ -102,11 +104,12 @@ void PmergeMe::_fordJohnsonSortDeque() {
 
     std::vector<size_t> jacobsthal = _getJacobsthalSequence(minValues.size());
     size_t previous = jacobsthal[0];
-
+	_insertDeque(_dequeData, minValues[0]);
     for (size_t index : jacobsthal) {
         size_t current = index;
         while (index > previous) {
-            if (index > minValues.size()) index = minValues.size();
+            if (index > minValues.size()) 
+				index = minValues.size();
             index--;
             _insertDeque(_dequeData, minValues[index]);
         }
@@ -146,6 +149,7 @@ void PmergeMe::_fordJohnsonSortVector() {
 	//jacobsthal insertion
 	std::vector<size_t> jacobsthal = _getJacobsthalSequence(minValues.size());
 	size_t previous = jacobsthal[0];
+	_insertVector(_vectorData, minValues[0]);
 	for (size_t index : jacobsthal) {
 		size_t current = index; 
 		while (index > previous) {

@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:19:27 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/06/01 17:41:19 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/06/06 10:53:23 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ class PmergeMe {
 		}
 
 	public:
+		PmergeMe();
 		PmergeMe(int argc, char **argv);
 		PmergeMe(const PmergeMe& copy);
 		PmergeMe& operator=(const PmergeMe& copy);
