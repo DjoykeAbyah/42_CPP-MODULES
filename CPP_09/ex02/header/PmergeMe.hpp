@@ -23,6 +23,7 @@
 #include <cctype>
 #include <iterator>
 #include <unordered_set>
+#include <limits.h>
 
 class PmergeMe {
 	private:
