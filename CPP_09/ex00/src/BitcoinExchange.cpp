@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:17:04 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/06/06 11:03:42 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/06/09 10:56:32 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,37 @@ BitcoinExchange::~BitcoinExchange() {}
 
 const std::map<std::string, float> &BitcoinExchange::getCsvData() const {
 	return _csvdata;
-} 
+}
+
+bool BitcoinExchange::isValidDate(const std::string& date) const {
+	//check format with regex
+	std::regex dateRegex("^\\d{4}-\\d{2}-\\d{2}$");
+	if (!std::regex_match(date, dateRegex))
+		return false;
+	
+	int year = std::stoi(date.substr(0, 4)); //char index 0-3 for year
+	int month = std::stoi(date.substr(5, 2)); //char index 5-6 month
+	int day = std::stoi(date.substr(8, 2)); //char inde 8-9 day
+	
+	if (month < 1 || month > 12 || day < 1 || day > 31)
+		return false;
+	
+	static const int maxDaysInMonth[12] = {
+		31, 28, 31, 30, 31, 30,
+		31, 31, 30, 31, 30, 31
+	};
+
+	int maxDays = maxDaysInMonth[month - 1];
+
+	//handle leap year
+	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))) {
+		maxDays = 29;
+	}
+
+	if (day > maxDays)
+		return false;
+	return true;
+}
 
 void BitcoinExchange::parseCsv(std::string &filename) {
 	std::fstream file(filename);
@@ -76,6 +106,11 @@ void BitcoinExchange::readTxt(std::string &filename) {
 		date.erase(date.find_last_not_of(" \t") + 1);
 		valueString.erase(0, valueString.find_first_not_of("\t"));
 		valueString.erase(valueString.find_last_not_of(" \t") + 1);
+		
+		if (!isValidDate(date)) {
+			std::cerr << "Invalid date: " << date << std::endl;
+			continue;
+		}
 		
 		//convert value to float
 		float value;

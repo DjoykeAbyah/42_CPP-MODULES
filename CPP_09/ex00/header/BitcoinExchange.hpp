@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/27 16:15:36 by dreijans      #+#    #+#                 */
-/*   Updated: 2025/06/06 11:03:32 by djoyke        ########   odam.nl         */
+/*   Updated: 2025/06/06 11:15:31 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <fstream>
 #include <exception>
 #include <sstream>
+#include <regex>
 
 class BitcoinExchange {
 	
@@ -31,13 +32,10 @@ class BitcoinExchange {
 		//getter
 		const std::map<std::string, float>& getCsvData() const;
 		
-		//setter?
-		
-		//read csv and put into map
 		void	parseCsv(std::string &filename);
-		//read input and put into map
 		void	readTxt(std::string &filename);
-		
+		bool	isValidDate(const std::string& date) const;
+
 	class OpenFileException : public std::exception {
 		virtual const char* what() const throw() {
 			return "Failed to open file";
